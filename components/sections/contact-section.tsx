@@ -7,12 +7,16 @@ import { Mail } from "lucide-react";
 import { siteConfig } from "../../config/site";
 import ShinyButton from "../ui/shiny-button";
 import GradientText from "../ui/gradient-text";
+import { TbLoader3 } from "react-icons/tb";
 
 const Contact = () => {
   const [hasMounted, setHasMounted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{ success: boolean; message: string } | null>(null);
   const [selectedOption, setSelectedOption] = useState<"contact" | "calendly">("contact");
+  const [loadingCalendly, setLoadingCalendly] = useState(false);
+  const [calendlyReady, setCalendlyReady] = useState(false);
+
 
   const [formState, setFormState] = useState({
     name: "",
@@ -24,14 +28,29 @@ const Contact = () => {
   const calendlyRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if (selectedOption === "calendly" && calendlyRef.current) {
-      // @ts-ignore
-      window.Calendly?.initInlineWidget({
-        url: "https://calendly.com/sam-thinksolv/30min?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=007bbf",
-        parentElement: calendlyRef.current,
-      });
+    if (selectedOption === "calendly") {
+      setLoadingCalendly(true);
+      setCalendlyReady(false);
+
+      setTimeout(() => {
+        if (calendlyRef.current) {
+          // Clear any previous Calendly content
+          calendlyRef.current.innerHTML = "";
+
+          // @ts-ignore
+          window.Calendly?.initInlineWidget({
+            url: "https://calendly.com/sam-thinksolv/30min?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=007bbf",
+            parentElement: calendlyRef.current,
+          });
+
+          // Once loaded (estimated), mark it ready
+          setCalendlyReady(true);
+          setLoadingCalendly(false);
+        }
+      }, 2500); // adjust delay as needed
     }
   }, [selectedOption]);
+
 
   useEffect(() => setHasMounted(true), []);
   if (!hasMounted) return null;
@@ -135,13 +154,21 @@ const Contact = () => {
 
           {/* Right - Contact Form or Calendly */}
           {selectedOption === "calendly" ? (
-            <div className="shadow-xl bg-gray-100 dark:bg-[#111] p-6 sm:p-8 rounded-xl border border-primary/30 h-full">
+            <div className="shadow-xl bg-gray-100 dark:bg-[#111] p-6 sm:p-8 rounded-xl border border-primary/30 h-full relative">
+              {loadingCalendly && (
+                <div className="absolute inset-0 flex items-center justify-center bg-gray-100 dark:bg-[#111] z-10">
+                  <p className="text-lg font-medium animate-pulse flex items-center gap-2">
+                    <TbLoader3 className="animate-spin text-2xl" />
+                    Loading... Please wait
+                  </p>
+                </div>
+              )}
               <div
                 ref={calendlyRef}
-                className="w-full"
+                className={`${!calendlyReady ? "invisible" : "visible"} w-full`}
                 style={{
                   width: "100%",
-                  minHeight: "320px", // consistent with contact form height
+                  minHeight: "320px",
                   height: "100%",
                   maxHeight: "600px",
                   overflow: "hidden",
@@ -149,6 +176,8 @@ const Contact = () => {
               />
             </div>
           ) : (
+            // ...your contact form remains unchanged
+
             <motion.form
               onSubmit={handleSubmit}
               initial={{ opacity: 0, y: -20 }}

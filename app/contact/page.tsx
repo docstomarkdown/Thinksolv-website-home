@@ -1,6 +1,5 @@
 import React from "react";
 import Contact from "../../components/sections/contact-section";
-import SectionHeader from "../../components/Common/SectionHeader";
 import { Metadata } from "next";
 import { siteConfig } from "../../config/site";
 

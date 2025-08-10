@@ -78,10 +78,10 @@ const Contact = () => {
     <section id="contact" className="bg-white dark:bg-black text-black dark:text-white py-20">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
       <div className="relative text-center mb-10">
-        <DotBadge label="Contact" textSize="text-md" gradient="from-primary to-primary/50" className="mb-7 justify-center" />
+        <DotBadge label="Contact" textSize="text-md" className="mb-7 justify-center" />
         <h1 className="text-4xl lg:text-5xl font-medium font-geist text-gray-900 dark:text-white mb-6 leading-tight">
                 {header.title}
-                <GradientText className="ml-3" gradient='from-red-600 via-red-500 to-red-600'>{header.span}</GradientText>
+                <GradientText className="ml-3" >{header.span}</GradientText>
               </h1>
       </div>
 

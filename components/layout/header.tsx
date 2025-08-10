@@ -5,10 +5,10 @@ import { GiSpiderWeb } from "react-icons/gi";
 import Image from "next/image"
 import { motion } from "framer-motion"
 import { ChevronDown, Settings, Package, BookOpen, Mail, FileText } from "lucide-react"
-import MobileNav from "../../components/MobileNav"
-import { siteConfig } from "../../config/site"
-import { dropdownVariants, sharedTransition } from "../../lib/framer-animations"
-import { cn } from "../../lib/utils"
+import MobileNav from "@/components/MobileNav"
+import { siteConfig } from "@/config/site"
+import { dropdownVariants, sharedTransition } from "@/lib/framer-animations"
+import { cn } from "@/lib/utils"
 
 // Function to get icon for service items
 const getServiceIcon = (label: string) => {
@@ -165,20 +165,11 @@ const Header = ({ showHeader = true, showLogo = true }) => {
         "sticky top-0 z-50 w-full transition-all duration-100",
         scrolled ? "bg-background/80 backdrop-blur-md border-b" : "bg-transparent border-b",
       )}
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: showHeader ? 1 : 0, y: showHeader ? 0 : -20 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <div className="container mx-auto px-0">
         <div className="flex items-center py-4 w-full">
           {/* Logo on the far left */}
-          <motion.div
-            className="flex items-center space-x-3"
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.2 }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: showLogo ? 1 : 0 }}
-          >
+          <motion.div className="flex items-center space-x-3">
             <a href="/" title={siteConfig.name} className="flex items-center">
               <div id="header-logo-container" className="relative">
                 <Image
@@ -189,7 +180,7 @@ const Header = ({ showHeader = true, showLogo = true }) => {
                   className="rounded px-2"
                 />
               </div>
-              <span className="text-2xl font-bold text-black dark:text-white mt-1">
+              <span className="text-3xl font-bold text-black dark:text-white mt-1">
                 {siteConfig.brandText.main}
                 <span className="text-red-600">{siteConfig.brandText.highlight}</span>
               </span>
@@ -203,11 +194,7 @@ const Header = ({ showHeader = true, showLogo = true }) => {
           <div className="flex items-center gap-4">
             {/* Menu Bar */}
             <motion.nav
-              className="hidden md:flex items-center gap-4 p-3 rounded-3xl bg-gradient-to-r from-background/60 via-background/40 to-background/60 backdrop-blur-xl border border-border/30 dark:border-white shadow-xl"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: showHeader ? 1 : 0, y: showHeader ? 0 : -20 }}
-              transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-            >
+              className="hidden md:flex items-center gap-4 p-3 rounded-3xl bg-gradient-to-r from-background/60 via-background/40 to-background/60 backdrop-blur-xl border border-border/30 dark:border-white shadow-xl">
               <AnimatedMenuItem
                 icon={<Settings className="h-5 w-5" />}
                 hasDropdown

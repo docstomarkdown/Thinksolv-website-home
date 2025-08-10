@@ -13,7 +13,7 @@ const GradientText: React.FC<GradientTextProps> = ({
   children,
   className = "",
   //gradient = "from-blue-600 via-blue-700 to-blue-700",
-  gradient = "from-[#007bbf] via-[#007bbf] to-[#007bbf]"
+  gradient = "from-red-600 via-red-500 to-red-600"
 }) => {
   return (
     <span

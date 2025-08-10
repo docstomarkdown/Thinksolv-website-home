@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Check } from "lucide-react"
 
-export function PricingSection() {
+export default function PricingSection() {
   const [isYearly, setIsYearly] = useState(false)
 
   return (

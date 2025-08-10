@@ -123,7 +123,6 @@ export default function HowItWorksSection() {
           label="How It Works"
           className="mb-8"
           textSize="text-md"
-          gradient="from-primary to-primary/50"
         />
         <motion.h2 
           className="text-4xl sm:text-5xl font-medium font-geist mb-6 text-black dark:text-white"
@@ -132,7 +131,6 @@ export default function HowItWorksSection() {
           transition={{ duration: 0.6 }}
         >
           <GradientText
-            gradient="from-red-600 via-red-500 to-red-600"
             className="block mb-4"
           >
             {sectionContent.span}

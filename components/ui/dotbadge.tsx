@@ -14,7 +14,7 @@ const DotBadge: React.FC<DotBadgeProps> = ({
   label,
   textSize = 'text-sm',
   padding = 'px-3 py-1',
-  gradient = 'bg-gradient-to-r from-red-400 to-red-300',
+  gradient = 'bg-gradient-to-r from-primary to-primary/50',
   className = '',
 }) => {
   return (

@@ -69,7 +69,6 @@ export default function WebScrapingVisual() {
   const targets = isMobile ? initialTargets.slice(0, 4) : initialTargets
   const structuredFormats = isMobile ? structuredTargets.slice(0, 4) : structuredTargets
 
-  const waveImage = "/Waves.png"
   const spiderImage = "/spider.svg"
   const webImage = "/web.svg"
 
@@ -183,7 +182,7 @@ export default function WebScrapingVisual() {
               ease: "easeInOut",
             }}
           >
-            <div className="absolute inset-0 opacity-20 z-0" style={{ backgroundImage: `url(${waveImage})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "top left" }} />
+            <div className="absolute inset-0 opacity-20 z-0" />
             
             <div className="relative z-10 flex-1 px-3 py-2 text-black flex flex-col justify-center items-center text-center">
               <Icon className="w-8 h-8 mb-1 text-secondary" />

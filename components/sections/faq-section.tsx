@@ -44,7 +44,7 @@ const FAQ = () => {
             {title}
             <GradientText className="ml-4">{span}</GradientText>
           </h1>
-  <p className="mt-2 text-lg font-semibold text-gray-600 dark:text-gray-300 relative z-10">
+  <p className="mt-2 text-lg font-medium font-geist text-gray-600 dark:text-gray-300 relative z-10">
     {description}
   </p>
 </div>
@@ -65,7 +65,7 @@ const FAQ = () => {
             >
               {/* Header */}
               <div className="flex justify-between items-center px-6 py-5">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                <h3 className="text-lg font-geist text-gray-900 dark:text-white">
                   {faq.question}
                 </h3>
 
@@ -80,11 +80,11 @@ const FAQ = () => {
 
               {/* Answer */}
               <div
-                className={`transition-all duration-300 ease-in-out px-6 pt-0 pb-5 text-gray-700 dark:text-gray-300 ${
+                className={`transition-all duration-300 ease-in-out px-7 pt-0 pb-2 text-gray-700 dark:text-gray-300 ${
                   isActive ? "max-h-[300px] opacity-100" : "max-h-0 opacity-0"
                 } overflow-hidden`}
               >
-                <p className="text-base border-l-4 border-primary pl-4 leading-relaxed">
+                <p className="text-base font-geist  border-l-4 border-primary pl-3 leading-relaxed">
                   {faq.answer}
                 </p>
               </div>

@@ -11,9 +11,9 @@ const FunFact = () => {
   return (
     <section className="relative overflow-hidden bg-white dark:bg-black px-6 py-20">
   {/* Centered DotBadge */}
-  <div className="flex justify-center mb-8">
+  {/* <div className="flex justify-center mb-8">
     <DotBadge label="Stats" className="lg:mb-5" textSize="text-md" />
-  </div>
+  </div> */}
 
   {/* Grid overlay background */}
   <div className="absolute inset-0 opacity-5 dark:opacity-10 pointer-events-none" />
@@ -39,14 +39,14 @@ const FunFact = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.1 }}
           viewport={{ once: true }}
-          className="relative z-10 text-gray-700 dark:text-gray-300 text-lg leading-relaxed max-w-xl mt-4"
+          className="relative z-10 font-geist text-gray-700 dark:text-gray-300 text-lg leading-relaxed max-w-xl mt-4"
         >
           {description}
         </motion.p>
       </div>
 
       {/* Right: Stat Cards Grid */}
-      <div className="grid sm:grid-cols-2 gap-6 max-w-[500px] mx-auto lg:mx-0">
+      <div className="grid sm:grid-cols- gap-6 max-w-[500px] items-center justifymx-auto lg:mx-0">
         {stats.map((stat, index) => (
           <motion.div
             key={stat.label}
@@ -54,7 +54,7 @@ const FunFact = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.2 + index * 0.2 }}
             viewport={{ once: true }}
-            className="bg-white dark:bg-[#1a1a1a] border border-primary/50 dark:border-primary/50 rounded-2xl p-6 shadow-md"
+            className="bg-white dark:bg-[#1a1a1a] border border-primary/50 dark:border-primary/50 rounded-2xl  p-6 shadow-md"
           >
             <div className="text-4xl lg:text-5xl font-semibold font-geist text-black dark:text-white mb-2">
               {stat.value}

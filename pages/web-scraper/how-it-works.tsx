@@ -129,11 +129,11 @@ export default function TabNavigation() {
         {/* Adjusted horizontal padding */}
         {/* Heading & Badge */}
         <div className="text-center mb-5">
-          <DotBadge label="How It Works" className="mb-7" gradient="from-primary to-primary/50" />
+          <DotBadge label="How It Works" className="mb-7" />
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-medium font-geist text-gray-900 dark:text-white mb-6 leading-tight">
             {" "}
             {/* Adjusted heading font size */}
-            Magic Behind Our <GradientText gradient="from-red-600 via-red-500 to-red-600">Smart Scraping</GradientText>
+            Magic Behind Our <GradientText>Smart Scraping</GradientText>
           </h1>
         </div>
         {/* Tab Navigation */}
@@ -152,7 +152,7 @@ export default function TabNavigation() {
                   }`}
             >
               {tab.icon}
-              <span className="text-md sm:text-md font-geist font-medium">{tab.label}</span>{" "}
+              <span className="text-xl sm:text-md font-geist font-medium">{tab.label}</span>{" "}
               {/* Adjusted label font size */}
             </button>
           ))}

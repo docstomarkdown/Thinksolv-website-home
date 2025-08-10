@@ -17,7 +17,7 @@ const Footer = () => {
   const socialIcons: Record<string, JSX.Element> = {
     linkedin: (
       <svg
-        className="fill-[#D1D8E0] transition-all duration-300 hover:fill-primary"
+        className="fill-gray-600 transition-all duration-300 hover:fill-primary"
         width="24"
         height="24"
         viewBox="0 0 24 24"
@@ -29,7 +29,7 @@ const Footer = () => {
     ),
     twitter: (
       <svg
-        className="fill-[#D1D8E0] transition-all duration-300 hover:fill-primary"
+        className="fill-gray-600 transition-all duration-300 hover:fill-primary"
         width="24"
         height="24"
         viewBox="0 0 48 48"
@@ -64,7 +64,7 @@ const Footer = () => {
                       className="rounded px-2"
                     />
                     <span className="text-2xl font-bold text-black dark:text-white mt-1">
-                      thinksol<span className="text-red-500">v.</span>
+                      thinksol<span className="text-red-600">v.</span>
                     </span>
                   </a>
                 </div>
@@ -73,7 +73,7 @@ const Footer = () => {
                 <p className="mb-4 font-medium font-geist mt-5">{siteConfig.tagline}</p>
 
                 {/* Social Icons Below Tagline */}
-                <ul className="flex items-center gap-4 mt-6 hover:text-primary">
+                <ul className="flex items-center gap-4 mt-6 text-primary">
                   {siteConfig.footer.social.map((social) => (
                     <li key={social.href}>
                       <a
@@ -117,11 +117,12 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section Without Social Icons */}
-        <div className="flex flex-col items-center justify-center gap-5 font-geist border-t border-stroke py-7 dark:border-strokedark lg:flex-row lg:justify-between">
-          <p>
-            &copy; {year ?? "____"} Owned and Maintained By {siteConfig.name} Ltd. All rights reserved.
+        <div className="flex items-center justify-center gap-5 font-geist border-t border-stroke py-7 dark:border-strokedark">
+          <p className="text-center">
+            &copy; {year ?? "____"} Owned and Maintained By {siteConfig.name} Pvt Ltd. All Rights Reserved.
           </p>
         </div>
+
       </div>
     </footer>
   );

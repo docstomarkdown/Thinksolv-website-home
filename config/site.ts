@@ -1,6 +1,5 @@
 import {
   FaFilePdf,
-  FaFileAlt,
   FaMarkdown,
   FaWordpress,
 } from "react-icons/fa";
@@ -10,12 +9,13 @@ import { FileText, Mail } from "lucide-react"
 
 export const siteConfig = {
   name: "Thinksolv Technologies",
-  tagline: "Building Solutions Thoughtfully",
+  headline:"Thinksolv Technologies Building Solutions Thoughtfully",
+  tagline: "Building Solutions Thoughtfully.",
   logo: {
     src: "/favicon-64x64.png",
     alt: "Thinksolv Logo",
-    width: 60,
-    height: 55,
+    width: 64,
+    height: 64,
   },
   brandText: {
     main: "thinksol",
@@ -25,7 +25,7 @@ export const siteConfig = {
   metaDescription: "Thinksolv is a software company focused on crafting AI-powered tools, Chrome extensions, and scalable digital solutions for modern businesses and individuals.",
   url: "https://thinksolv.com",
   ogImage: "https://thinksolv.com/og.jpg",
-  supportmail:"vikram@thinksolv.com", // Replace with actual path or CDN URL if hosted elsewhere
+  supportmail:"vikram@thinksolv.com",
   links: {
     twitter: "https://twitter.com/thinksolv",
     youtube: "https://www.youtube.com/@thinksolv", // Update with correct handle if different
@@ -104,11 +104,11 @@ export const siteConfig = {
   },
 
   products: {
-    title: "Smart Tools for Smart",
-    span:"People",
+    title: "Tools that Drive",
+    span:"Results",
     //subtitle: "Streamline Your Workflow with Our Ready-to-Use Products",
     description:
-      "Our thoughtfully crafted products are designed to automate tasks and optimize workflows, helping your business operate more efficiently.",
+      "Our thoughtfully crafted products are designed to automate tasks and optimize workflows, helping businesses and people to operate more efficiently.",
       buttontext:"Explore",
     actions: [
       {
@@ -125,9 +125,17 @@ export const siteConfig = {
     items: [
       {
         id: 1,
+        icon: BiMerge,
+        title: "Merge Docs Pro",
+        description:
+          "Combines multiple Google Docs into single document and export the output as PDF.",
+        url: "https://www.mergedocs.pro",
+      },
+      {
+        id: 2,
         icon: FaFilePdf,
         title: "Docs to PDF Pro",
-        description: "Converts Google Docs to high-quality PDFs.",
+        description: "Converts Google Docs into high-quality PDFs.",
         url: "https://www.docstopdf.pro",
       },
       // {
@@ -137,14 +145,6 @@ export const siteConfig = {
       //   description: "Converts PDF documents into editable Google Docs.",
       //   url: "https://www.pdftodocs.com",
       // },
-      {
-        id: 3,
-        icon: BiMerge,
-        title: "Merge Docs Pro",
-        description:
-          "Combines multiple Google Docs into one single document and optionally exports the output as PDF.",
-        url: "https://www.mergedocs.pro",
-      },
       // {
       //   id: 4,
       //   icon: FaSyncAlt,
@@ -163,7 +163,7 @@ export const siteConfig = {
       {
         id: 6,
         icon: FaWordpress,
-        title: "Docs to WordPress Pro",
+        title: "Docs to WP Pro",
         description:
           "Publishes Google Docs content as clean HTML directly to your WordPress site.",
         url: "https://www.docstowp.pro",
@@ -218,21 +218,21 @@ export const siteConfig = {
     title: "Trusted by Global",
     span: "Companies",
     description:
-      "We provide tailored Google Workspace automation and integration solutions, helping businesses worldwide streamline workflows and boost productivity.",
+      "We provide tailored Google Workspace Automation and Solutions, helping businesses worldwide to streamline their workflows and boost productivity.",
     stats: [
       {
         label: "World Wide Clients",
         value: "100+",
       },
       {
-        label: "App Users",
-        value: "25K+",
+        label: "Product Users",
+        value: "200K+",
       },
       // Add more stats as needed
-      // {
-      //   label: "Awards Won",
-      //   value: "865",
-      // },
+      {
+        label: "of Trusted Industry Experience",
+        value: "4+ Years",
+      },
     ],
   },
 
@@ -244,7 +244,7 @@ export const siteConfig = {
       {
         question: "What services do you offer?",
         answer:
-          "We specialize in Google Workspace automation, AppSheet development, Document AI, and integrations with platforms like ClickUp, HubSpot, Slack, and others to enhance productivity.",
+          "We specialize in Google Workspace Automation, Document AI, Web Scraping and integrations with platforms like ClickUp, HubSpot, Slack, and others to enhance productivity.",
       },
       {
         question: "Can you help integrate Google Workspace with third-party tools?",
@@ -326,8 +326,8 @@ export const siteConfig = {
       { label: "Docs to WP Pro", href: "https://www.docstowp.pro" },
     ],
     services: [
-      { label: "Document AI", href: "/services/document-ai" },
       { label: "Web Scraping", href: "/services/web-scraping" },
+      { label: "Document AI", href: "/services/document-ai" },
     ],
     legal: [
       { label: "Privacy Policy", href: "/privacy-policy" },

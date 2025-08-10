@@ -10,10 +10,10 @@ export default function UseCasesGrid() {
     <section className="w-full py-12 md:py-16 lg:py-14 bg-white dark:bg-black">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-          <DotBadge label="Use Cases" className="mb-5 mx-auto" gradient="from-primary to-primary/50" />
+          <DotBadge label="Use Cases" className="mb-5 mx-auto" />
           <h2 className="text-4xl font-medium font-geist lg:text-5xl">
             {useCases.heading}
-            <GradientText gradient="from-red-600 via-red-500 to-red-600" className="mt-2 lg:block">
+            <GradientText className="mt-2 lg:block">
               Into Impact
             </GradientText>
           </h2>

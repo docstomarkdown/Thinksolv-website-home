@@ -25,12 +25,11 @@ export default function FeatureSection() {
         <DotBadge
           label="Features"
           textSize="text-md"
-          gradient="from-primary to-primary/50"
           className="mb-7 justify-center"
         />
         <h1 className="text-4xl lg:text-5xl font-medium font-geist text-gray-900 dark:text-white mb-6 leading-tight">
           Why Teams
-          <GradientText className="ml-3" gradient="from-red-600 via-red-500 to-red-500">
+          <GradientText className="ml-3" >
             Choose Us ?
           </GradientText>
         </h1>

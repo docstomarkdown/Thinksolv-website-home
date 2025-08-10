@@ -38,9 +38,9 @@ const Product = () => {
             <div className="relative z-10 text-center lg:text-left">
               <h1 className="text-4xl lg:text-5xl font-medium font-geist text-gray-900 dark:text-white mb-6 leading-tight">
                 {title}
-                <GradientText className="mt-2 block">{span}</GradientText>
+                <GradientText className="ml-3">{span}</GradientText>
               </h1>
-              <p className="mt-4 text-base sm:text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+              <p className="mt-4 font-geist sm:text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
                 {description}
               </p>
             </div>

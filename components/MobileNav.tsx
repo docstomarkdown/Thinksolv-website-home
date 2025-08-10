@@ -12,8 +12,9 @@ interface MobileNavProps {
 const MobileNav: React.FC<MobileNavProps> = ({ expanded, setExpanded }) => {
   const menuItems = {
     Services: [
+      { title: "Web Scraping", href: "/services/web-scraping" },
       { title: "Document AI", href: "/services/document-ai" },
-    //   { title: "Business Intelligence", href: "/seo" },
+      //   { title: "Business Intelligence", href: "/seo" },
     //   { title: "Workflow Automations", href: "/interface-desi
     ],
     Products: [

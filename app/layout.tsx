@@ -25,7 +25,7 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: siteConfig.name,
+    default: siteConfig.headline,
     template: `%s`,
   },
   description: siteConfig.metaDescription,
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: '/favicon.ico',
-    shortcut: '/public/favicon-64x64.png',
+    shortcut: 'public/favicon-64x64.png',
     apple: '/public/apple-touch-icon.png',
   },
   category: 'technology',

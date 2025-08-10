@@ -78,10 +78,10 @@ const Contact = () => {
     <section id="contact" className="bg-white dark:bg-black text-black dark:text-white py-20">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
       <div className="relative text-center mb-10">
-        <DotBadge label="Contact" textSize="text-md" gradient="from-primary to-primary/50" className="mb-7 justify-center" />
+        <DotBadge label="Contact" textSize="text-md" className="mb-7 justify-center" />
         <h1 className="text-4xl lg:text-5xl font-medium font-geist text-gray-900 dark:text-white mb-6 leading-tight">
                 {header.title}
-                <GradientText className="ml-3" gradient='from-red-600 via-red-500 to-red-600'>{header.span}</GradientText>
+                <GradientText className="ml-3">{header.span}</GradientText>
               </h1>
       </div>
 
@@ -117,7 +117,7 @@ const Contact = () => {
               className={`px-5 py-2 rounded-lg border font-medium font-geist transition-colors ${
                 selectedOption === "contact"
                   ? "border-bordercolor bg-black text-white"
-                  : "border-gray-300 dark:border-gray-600 bg-muted text-foreground hover:text-secondary/75"
+                  : "border-gray-300 dark:border-gray-600 bg-muted text-foreground hover:text-primary"
               }`}
             >
               Talk to Us
@@ -127,7 +127,7 @@ const Contact = () => {
               className={`px-5 py-2 rounded-lg border font-medium font-geist transition-colors ${
                 selectedOption === "calendly"
                   ? "border-bordercolor bg-black text-white"
-                  : "border-gray-300 dark:border-gray-600 bg-muted text-foreground hover:text-secondary/75"
+                  : "border-gray-300 dark:border-gray-600 bg-muted text-foreground hover:text-primary"
               }`}
             >
               Schedule Meeting

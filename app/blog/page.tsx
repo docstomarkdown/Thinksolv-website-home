@@ -19,8 +19,8 @@ export default function BlogPage() {
     <div className="py-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className=" text-center mb-16">
-          <h1 className="text-6xl font-heading mb-4">Blog</h1>
-          <p className="text-xl text-muted-foreground">Read the latest news, updates, and insights from our team.</p>
+          <h1 className="text-6xl font-geist font-medium mb-4">Blog</h1>
+          <p className="text-xl font-geist text-muted-foreground">Read the latest news, updates, and insights from our team.</p>
         </div>
 
         <div className="max-w-6xl mx-auto">
@@ -39,21 +39,21 @@ export default function BlogPage() {
                   />
                 </div>
                 <CardHeader className="p-6">
-                  <div className="flex items-center text-sm text-muted-foreground mb-3">
+                  <div className="flex items-center text-sm font-geist text-muted-foreground mb-3">
                     <span>{post.date}</span>
                     <span className="mx-2">•</span>
                     <span>{post.category}</span>
                   </div>
                   <Link href={`/${post.slug}`} className="block">
-                    <CardTitle className="text-3xl hover:text-primary transition-colors line-clamp-2 font-heading">
+                    <CardTitle className="text-3xl hover:text-primary transition-colors line-clamp-2 font-geist">
                       {post.title}
                     </CardTitle>
                   </Link>
-                  <CardDescription className="text-sm">By {post.author}</CardDescription>
+                  <CardDescription className="text-sm font-geist">By {post.author}</CardDescription>
                 </CardHeader>
                 <CardContent className="px-6 pb-6">
-                  <p className="text-muted-foreground line-clamp-3 mb-4">{post.excerpt}</p>
-                  <Button variant="ghost" className="p-0 h-auto font-medium text-primary hover:text-primary/80" asChild>
+                  <p className="text-muted-foreground line-clamp-3 mb-4 font-geist ">{post.excerpt}</p>
+                  <Button variant="ghost" className="p-0 h-auto font-medium font-geist text-primary hover:text-primary/80" asChild>
                     <Link href={`/${post.slug}`}>Read more &nbsp; <ArrowRight size={15}/></Link>
                   </Button>
                 </CardContent>

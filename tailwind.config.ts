@@ -223,6 +223,10 @@ const config = {
 						opacity: "0",
 					},
 				},
+				'fade-in': {
+					'0%': { opacity: '0', transform: 'translateY(-4px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' },
+				},
 				slide: {
 					'0%': { transform: 'translateX(100%)' },
 					'100%': { transform: 'translateX(-100%)' },
@@ -237,9 +241,7 @@ const config = {
 				// },
 			},
 			animation: {
-				'wave-slow': 'wave 8s ease-in-out infinite',
-				'wave-medium': 'wave 6s ease-in-out infinite',
-				'wave-fast': 'wave 4s ease-in-out infinite',
+				'fade-in': 'fade-in 0.6s ease-out',
 				//ripple: 'ripple 2s ease-in-out infinite',
 				line1: "line 3s linear infinite",
 				line2: "line 6s linear infinite",

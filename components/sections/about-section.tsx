@@ -63,7 +63,7 @@ export default function AboutOption4() {
     },
   }
   return (
-    <section className="py-24 bg-white dark:bg-black relative overflow-hidden">
+    <section className="lg:py-24 bg-white dark:bg-black relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5 pointer-events-none">
         <div className="absolute top-0 left-0 w-full h-full bg-white dark:bg-black"></div>
@@ -82,7 +82,7 @@ export default function AboutOption4() {
             Where Innovation Meets
             <GradientText className="lg:block mt-2 ml-2">Excellence</GradientText>
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl font-geist text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
             We deliver innovative solutions and services that fuel your drastic business growth.
           </p>
         </motion.div>
