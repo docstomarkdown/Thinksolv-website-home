@@ -51,7 +51,7 @@ export const siteConfig = {
     ],
     products: [
       { label: "Merge Docs Pro", href: "https://www.mergedocs.pro" },
-      { label: "PDF to Docs Pro", href: "https://www.pdftodocs.com" },
+      { label: "Docs to PDF", href: "https://www.docstopdf.pro" },
       { label: "Docs to Markdown Pro", href: "https://www.docstomarkdown.pro" },
       { label: "Docs to WP Pro", href: "https://www.docstowp.pro" },
     ],
@@ -321,7 +321,7 @@ export const siteConfig = {
     ],
     products: [
       { label: "Merge Docs Pro", href: "https://www.mergedocs.pro" },
-      { label: "PDF to Docs Pro", href: "https://www.pdftodocs.com" },
+      { label: "Docs to PDF", href: "https://www.docstopdf.pro" },
       { label: "Docs to Markdown Pro", href: "https://www.docstomarkdown.pro" },
       { label: "Docs to WP Pro", href: "https://www.docstowp.pro" },
     ],

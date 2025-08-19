@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss"
 
 const config = {
-	darkMode: ["class"],
+	darkMode: "class",
 	content: [
 		'./pages/**/*.{js,ts,jsx,tsx}',
 		'./components/**/*.{js,ts,jsx,tsx}',
@@ -31,6 +31,9 @@ const config = {
 					'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
 			},
 			colors: {
+				primary: "#007bbf",
+				bordercolor: "#d4d0d0",
+				secondary: '#e91c24',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
@@ -64,9 +67,6 @@ const config = {
 				// 	foreground: 'hsl(var(--card-foreground))'
 				// },
 				current: "currentColor",
-				primary: "#007bbf",
-				bordercolor: "#d4d0d0ff",
-				secondary: '#e91c24',
 				meta: "#20C5A8",
 				socialicon: "#D1D8E0",
 				// gradientStart: '#ff0000', // Start color of gradient

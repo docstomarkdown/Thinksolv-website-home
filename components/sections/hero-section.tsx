@@ -4,20 +4,20 @@ import { siteConfig } from "@/config/site";
 import { motion } from "framer-motion";
 import ShinyButton from "@/components/ui/shiny-button";
 import GradientText from "../ui/gradient-text";
-import HeroAnimation from "./hero-animation";
+// import GlassModulesAssembly from "./hero3";
+import LuminousAssembler from "./web-scraping-animation";
 
 export default function HeroSection() {
-  
   const { hero } = siteConfig;
 
   return (
-    <div className="w-full flex items-center justify-center bg-cover bg-center bg-white dark:bg-black">
-      <div className="w-full max-w-7xl px-4 sm:px-6 lg:px-12 py-16 sm:py-20 lg:py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-
+    // Use dvh/svh so mobile browser UI doesn’t shrink the hero.
+    <section className="w-full min-h-[100svh] md:min-h-[80dvh] flex items-center justify-center bg-white dark:bg-black overflow-hidden">
+      <div className="w-full max-w-7xl px-4 sm:px-6 lg:px-12 py-10 sm:py-14 md:py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Left Content */}
         <div className="space-y-8 text-center lg:text-left">
           <div className="space-y-6">
-            <h1 className="text-4xl lg:text-5xl lg:text-6xl font-medium font-geist text-gray-900 dark:text-white leading-tight">
+            <h1 className="text-4xl lg:text-6xl font-medium font-geist text-gray-900 dark:text-white leading-tight">
               {hero.title}{" "}
               <GradientText
                 gradient="from-red-600 via-red-600 to-red-600"
@@ -57,11 +57,12 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Right Side Placeholder for Animation */}
-        <div className="relative w-full h-[250px] sm:h-[350px] md:h-[400px] lg:h-[500px] mx-auto lg:mx-0 overflow-hidden rounded-xl flex items-center justify-center dark:bg-neutral-900">
-  <HeroAnimation />
-</div>
+        {/* Right: animation */}
+        <div className="relative w-full h-[45vh] md:h-[55vh] lg:h-[60vh] max-h-[560px] mx-auto lg:mx-0 overflow-hidden rounded-xl flex items-center justify-center dark:bg-neutral-900">
+          {/* <GlassModulesAssembly /> */}
+          <LuminousAssembler />
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

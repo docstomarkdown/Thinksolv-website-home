@@ -95,8 +95,8 @@ export default function HowItWorksSection() {
         setExpandedStep((prev) => 
           prev === null ? activeStepIndex : null
         );
-      }, 1000);
-    }, 4000); // Total cycle time for each step
+      }, 800);
+    }, 1500); // Total cycle time for each step
   };
 
   const stopAutoCycle = () => {

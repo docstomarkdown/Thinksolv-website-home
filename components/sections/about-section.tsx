@@ -83,7 +83,7 @@ export default function AboutOption4() {
             <GradientText className="lg:block mt-2 ml-2">Excellence</GradientText>
           </h1>
           <p className="text-xl font-geist text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
-            We deliver innovative solutions and services that fuel your drastic business growth.
+            We deliver innovative solutions and services that fuel your business growth.
           </p>
         </motion.div>
         {/* Sections */}

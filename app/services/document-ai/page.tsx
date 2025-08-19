@@ -1,4 +1,4 @@
-import Contact from "@/pages/document-ai/contact";
+import Contact from "@/components/sections/contact-section";
 import FAQ from "@/pages/document-ai/faq";
 import HeroSection from "@/pages/document-ai/hero-section";
 import FeatureSection from "@/pages/document-ai/features";

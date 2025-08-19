@@ -37,18 +37,17 @@ const FAQ = () => {
 
   return (
     <section className=" py-20 px-6 dar:bg-black">
-      
-<div className="relative max-w-5xl mx-auto text-center mb-5 flex flex-col items-center gap-4">
-  <DotBadge label="FAQs" textSize="text-md" className="mb-5"/>
-  <h1 className="text-4xl lg:text-5xl font-medium font-geist text-gray-900 dark:text-white mb-2 leading-tight">
-            {title}
-            <GradientText className="ml-4">{span}</GradientText>
-          </h1>
-  <p className="mt-2 text-lg font-medium font-geist text-gray-600 dark:text-gray-300 relative z-10">
-    {description}
-  </p>
-</div>
 
+      <div className="relative max-w-5xl mx-auto text-center mb-5 flex flex-col items-center gap-4">
+        <DotBadge label="FAQs" textSize="text-md" className="mb-5" />
+        <h1 className="text-4xl lg:text-5xl font-medium font-geist text-gray-900 dark:text-white mb-2 leading-tight">
+          {title}
+          <GradientText className="ml-4">{span}</GradientText>
+        </h1>
+        <p className="mt-2 text-lg font-medium font-geist text-gray-600 dark:text-gray-300 relative z-10">
+          {description}
+        </p>
+      </div>
 
       <div className="max-w-3xl mx-auto space-y-5">
         {faqs.map((faq, index) => {
@@ -80,9 +79,8 @@ const FAQ = () => {
 
               {/* Answer */}
               <div
-                className={`transition-all duration-300 ease-in-out px-7 pt-0 pb-2 text-gray-700 dark:text-gray-300 ${
-                  isActive ? "max-h-[300px] opacity-100" : "max-h-0 opacity-0"
-                } overflow-hidden`}
+                className={`transition-all duration-300 ease-in-out px-7 pt-0 pb-2 text-gray-700 dark:text-gray-300 ${isActive ? "max-h-[300px] opacity-100" : "max-h-0 opacity-0"
+                  } overflow-hidden`}
               >
                 <p className="text-base font-geist  border-l-4 border-primary pl-3 leading-relaxed">
                   {faq.answer}

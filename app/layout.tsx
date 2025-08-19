@@ -1,42 +1,46 @@
-import './globals.css'
-import Script from 'next/script'
-import type { Metadata } from 'next'
-import localFont from 'next/font/local'
-import { ThemeProvider } from '@/components/theme-provider'
-import Header from '@/components/layout/header'
-import Footer from '@/components/layout/footer'
-import { siteConfig } from '@//config/site'
+import type React from "react"
+import "./globals.css"
+import Script from "next/script"
+import type { Metadata } from "next"
+import localFont from "next/font/local"
+import { ThemeProvider } from "@/components/theme-provider"
+import Header from "@/components/layout/header"
+import Footer from "@/components/layout/footer"
+import { siteConfig } from "@/config/site"
+import CalendlyScript from "@/components/CalendlyScript"
 
 // Local fonts
 const geistSans = localFont({
-  src: './fonts/GeistVF.woff',
-  variable: '--font-geist-sans',
-  weight: '100 900',
-  display: 'swap',
+  src: "./fonts/GeistVF.woff",
+  variable: "--font-geist-sans",
+  weight: "100 900",
+  display: "swap",
 })
 
 const geistMono = localFont({
-  src: './fonts/GeistMonoVF.woff',
-  variable: '--font-geist-mono',
-  weight: '100 900',
-  display: 'swap',
+  src: "./fonts/GeistMonoVF.woff",
+  variable: "--font-geist-mono",
+  weight: "100 900",
+  display: "swap",
 })
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
     default: siteConfig.headline,
-    template: `%s`,
+    template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.metaDescription,
-  keywords: ['software', 'product', 'business', 'solution', ...siteConfig.keywords],
+  keywords: ["software", "product", "business", "solution", ...siteConfig.keywords],
   authors: [{ name: siteConfig.name, url: siteConfig.url }],
   creator: siteConfig.name,
   publisher: siteConfig.name,
-  alternates: { canonical: siteConfig.url },
+  alternates: {
+    canonical: siteConfig.url,
+  },
   openGraph: {
-    type: 'website',
-    locale: 'en_US',
+    type: "website",
+    locale: "en_US",
     url: siteConfig.url,
     title: siteConfig.name,
     description: siteConfig.description,
@@ -51,12 +55,12 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
-    card: 'summary_large_image',
+    card: "summary_large_image",
     title: siteConfig.name,
     description: siteConfig.description,
     images: [siteConfig.ogImage],
-    creator: '..chatgpttodocs',
-    site: '..chatgpttodocs',
+    creator: "@chatgpttodocs",
+    site: "@chatgpttodocs",
   },
   robots: {
     index: false,
@@ -64,17 +68,17 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-image-preview': 'large',
-      'max-video-preview': -1,
-      'max-snippet': -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+      "max-snippet": -1,
     },
   },
   icons: {
-    icon: '/favicon.ico',
-    shortcut: 'public/favicon-64x64.png',
-    apple: '/public/apple-touch-icon.png',
+    icon: "/favicon.ico",
+    shortcut: "/favicon-64x64.png",
+    apple: "/apple-touch-icon.png",
   },
-  category: 'technology',
+  category: "technology",
 }
 
 export default function RootLayout({
@@ -85,7 +89,23 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Google Analytics */}
+        {/* Theme detection script - prevents flash of wrong theme */}
+        <Script id="theme-script" strategy="beforeInteractive">
+          {`
+            (function() {
+              function getThemePreference() {
+                if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+                  return localStorage.getItem('theme');
+                }
+                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+              }
+              const theme = getThemePreference();
+              document.documentElement.classList.toggle('dark', theme === 'dark');
+            })();
+          `}
+        </Script>
+
+        {/* GA */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
           strategy="afterInteractive"
@@ -99,7 +119,7 @@ export default function RootLayout({
           `}
         </Script>
 
-        {/* Microsoft Clarity */}
+        {/* Clarity */}
         <Script id="clarity-script" strategy="afterInteractive">
           {`
             (function(c,l,a,r,i,t,y){
@@ -110,13 +130,7 @@ export default function RootLayout({
           `}
         </Script>
 
-        {/* Calendly Component */}
-        <Script
-          type="text/javascript"
-          src="https://assets.calendly.com/assets/external/widget.js"
-          async
-        >
-        </Script>
+        <CalendlyScript />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>
         <ThemeProvider>

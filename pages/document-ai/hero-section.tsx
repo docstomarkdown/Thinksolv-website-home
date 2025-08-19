@@ -7,15 +7,17 @@ import DocumentAIComponent from "./document-ai-component";
 export default function HeroSection() {
   return (
     <div className="w-full flex items-center justify-center bg-cover bg-center bg-white dark:bg-black">
-      <div className="w-full py-16 md:py-30 lg:p-40 flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-12">
+      <div className="w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28 xl:py-32 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
         
-        {/* Left Side - Text Content */}
-        <div className="flex-1 text-center lg:text-left space-y-6 lg:-translate-x-4 px-2 md:px-0">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium font-geist text-gray-900 dark:text-white leading-tight">
+        {/* Left Side - Text */}
+        <div className="space-y-6 text-center lg:text-left">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-medium font-geist text-gray-900 dark:text-white leading-tight">
             {heroContent.headline}
-            <GradientText className="ml-2">{heroContent.highlightedText}</GradientText>
+            <GradientText className="ml-1 sm:ml-2 lg:ml-1 inline-block">
+              {heroContent.highlightedText}
+            </GradientText>
           </h1>
-          <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-xl mx-auto lg:mx-0">
+          <p className="font-geist text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
             {heroContent.subheadline}
           </p>
           <div className="pt-2">
@@ -27,7 +29,7 @@ export default function HeroSection() {
               <ShinyButton>
                 {heroContent.secondaryCTA}
                 <svg
-                  className="w-5 h-5 ml-2 transition-transform duration-300"
+                  className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-0.5"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -42,11 +44,9 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Right Side - Visual Component */}
-        <div className="flex-1 flex justify-center items-center lg:translate-x-4 w-full">
-          <div className="w-full max-w-[90vw] sm:max-w-[500px] md:max-w-[750px] lg:w-[850px] aspect-[3/2] bg-white lg:mr-30 dark:bg-gray-800 rounded-xl ">
-            <DocumentAIComponent />
-          </div>
+        {/* Right Side - Visual */}
+        <div className="relative w-full max-w-[700px] mx-auto aspect-square rounded-2xl shadow-inner bg-gray-100 dark:bg-gray-900">
+          <DocumentAIComponent />
         </div>
       </div>
     </div>

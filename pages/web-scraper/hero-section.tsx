@@ -11,7 +11,7 @@ export default function HeroSection() {
         <div className="space-y-6 text-center lg:text-left">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-medium font-geist text-gray-900 dark:text-white leading-tight">
             {heroContent.headline}
-            <GradientText className="ml-2 sm:ml-3 inline-block">
+            <GradientText className="inline-block">
               {heroContent.highlightedText}
             </GradientText>
           </h1>

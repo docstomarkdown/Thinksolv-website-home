@@ -42,7 +42,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="border-t border-stroke bg-white dark:border-strokedark dark:bg-black mt-10">
+    <footer className="border-t border-stroke bg-white dark:border-strokedark dark:bg-black">
       <div className="mx-auto max-w-c-1390 px-4 md:px-8 2xl:px-0">
         <div className="py-15">
           <div className="flex flex-wrap gap-8 lg:justify-between lg:gap-0">
@@ -59,13 +59,14 @@ const Footer = () => {
                     <Image
                       src={siteConfig.footer.logo.src}
                       alt={siteConfig.footer.logo.alt}
-                      width={60}
-                      height={55}
+                      width={64}
+                      height={64}
                       className="rounded px-2"
                     />
-                    <span className="text-2xl font-bold text-black dark:text-white mt-1">
+                    <span className="text-3xl font-geist font-bold text-black dark:text-white mt-1">
                       thinksol<span className="text-red-600">v.</span>
                     </span>
+                    
                   </a>
                 </div>
 
@@ -87,6 +88,17 @@ const Footer = () => {
                     </li>
                   ))}
                 </ul>
+
+                {/* Extra Image Below Social Icons */}
+                <div className="mt-6">
+                  <Image
+                    src="/Google_Cloud_Partner_v.png" // replace with your image path
+                    alt="Footer extra visual"
+                    width={200}
+                    height={120}
+                    className="rounded-lg shadow-md"
+                  />
+                </div>
               </motion.div>
             )}
 
@@ -119,10 +131,11 @@ const Footer = () => {
         {/* Bottom Section Without Social Icons */}
         <div className="flex items-center justify-center gap-5 font-geist border-t border-stroke py-7 dark:border-strokedark">
           <p className="text-center">
-            &copy; {year ?? "____"} Owned and Maintained By {siteConfig.name} Pvt Ltd. All Rights Reserved.
+           {/* &copy; {year ?? "____"} Owned and Maintained By {siteConfig.name} Pvt Ltd. All Rights Reserved. | EST. 2022 */}
+         {/* EST. 2022 &copy; {year ?? "____"} Owned and Maintained By {siteConfig.name} Pvt Ltd. All Rights Reserved. */}
+            &copy; 2022 - {year ?? "____"} Owned and Maintained By {siteConfig.name} Pvt Ltd. All Rights Reserved.
           </p>
         </div>
-
       </div>
     </footer>
   );
@@ -162,6 +175,7 @@ const FooterList = ({
             >
               {item.label}
             </a>
+            
           </li>
         ))}
       </ul>

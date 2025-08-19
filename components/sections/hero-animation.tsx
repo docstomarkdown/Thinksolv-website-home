@@ -369,7 +369,7 @@ export default function HeroAnimation() {
     isThinkClicked || isBuildClicked || isSolveClicked ? finalCursorPos : cursorTarget;
 
   return (
-    <div className="relative w-full h-full min-h-[400px] overflow-hidden rounded-xl bg-white dark:bg-neutral-900">
+    <div className="relative w-full h-full min-h-[400px] overflow-hidden rounded-xl  ">
       <motion.div animate={{ opacity: cursorVisible ? 1 : 0 }} transition={{ duration: 0.8 }}>
         <SmoothCursor target={actualCursorTarget} />
       </motion.div>
