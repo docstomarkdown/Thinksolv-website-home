@@ -4,12 +4,10 @@ import { siteConfig } from "@/config/site";
 import { motion } from "framer-motion";
 import ShinyButton from "@/components/ui/shiny-button";
 import GradientText from "../ui/gradient-text";
-// import GlassModulesAssembly from "./hero3";
-import LuminousAssembler from "./web-scraping-animation";
+import ThoughtfulBuildingAnimation from "../ui/thoughtful-building-animation";
 
 export default function HeroSection() {
   const { hero } = siteConfig;
-
   return (
     // Use dvh/svh so mobile browser UI doesn’t shrink the hero.
     <section className="w-full min-h-[100svh] md:min-h-[80dvh] flex items-center justify-center bg-white dark:bg-black overflow-hidden">
@@ -17,23 +15,45 @@ export default function HeroSection() {
         {/* Left Content */}
         <div className="space-y-8 text-center lg:text-left">
           <div className="space-y-6">
-            <h1 className="text-4xl lg:text-6xl font-medium font-geist text-gray-900 dark:text-white leading-tight">
+            <motion.h1 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-4xl lg:text-6xl font-medium font-geist text-gray-900 dark:text-white leading-tight"
+            >
               {hero.title}{" "}
-              <GradientText
-                gradient="from-red-600 via-red-600 to-red-600"
-                className="mt-2"
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                className="inline-block"
               >
-                {hero.highlighted}
-              </GradientText>
-            </h1>
-
-            <p className="text-base sm:text-lg md:text-xl text-gray-500 leading-relaxed max-w-lg mx-auto lg:mx-0">
-              Empowering businesses with intelligent data & workflows.
-            </p>
+                <GradientText
+                  gradient="from-red-600 via-red-600 to-red-600"
+                  className="mt-2"
+                >
+                  {hero.highlighted}
+                </GradientText>
+              </motion.div>
+            </motion.h1>
+            
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.0 }}
+              className="font-geist sm:text-lg md:text-xl text-gray-500 leading-relaxed max-w-lg mx-auto lg:mx-0"
+            >
+              Every line of code, every click, every feature built with care and purpose.
+            </motion.p>
           </div>
 
           {/* CTA Button */}
-          <div className="space-y-4">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.4 }}
+            className="space-y-4"
+          >
             <a
               href={hero.buttonHref}
               rel="noopener noreferrer"
@@ -54,13 +74,12 @@ export default function HeroSection() {
                 </svg>
               </ShinyButton>
             </a>
-          </div>
+          </motion.div>
         </div>
 
         {/* Right: animation */}
-        <div className="relative w-full h-[45vh] md:h-[55vh] lg:h-[60vh] max-h-[560px] mx-auto lg:mx-0 overflow-hidden rounded-xl flex items-center justify-center dark:bg-neutral-900">
-          {/* <GlassModulesAssembly /> */}
-          <LuminousAssembler />
+        <div className="relative w-full h-[45vh] md:h-[55vh] lg:h-[60vh] max-h-[560px] mx-auto lg:mx-0 overflow-hidden rounded-xl flex items-center justify-center">
+          <ThoughtfulBuildingAnimation />
         </div>
       </div>
     </section>

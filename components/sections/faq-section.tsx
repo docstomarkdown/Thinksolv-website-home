@@ -44,7 +44,7 @@ const FAQ = () => {
           {title}
           <GradientText className="ml-4">{span}</GradientText>
         </h1>
-        <p className="mt-2 text-lg font-medium font-geist text-gray-600 dark:text-gray-300 relative z-10">
+        <p className="mt-2 text-lg font-geist text-gray-600 dark:text-gray-300 relative z-10">
           {description}
         </p>
       </div>

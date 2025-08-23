@@ -298,4 +298,4 @@ const Header = ({ showHeader = true, showLogo = true }) => {
   )
 }
 
-export default Header
+export default Header;

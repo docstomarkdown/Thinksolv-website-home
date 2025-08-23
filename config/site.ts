@@ -6,6 +6,7 @@ import {
 import { GiSpiderWeb } from "react-icons/gi";
 import { BiMerge } from "react-icons/bi";
 import { FileText, Mail } from "lucide-react"
+import { DriveExplorerIcon } from "../components/ui/icons";
 
 export const siteConfig = {
   name: "Thinksolv Technologies",
@@ -54,6 +55,7 @@ export const siteConfig = {
       { label: "Docs to PDF", href: "https://www.docstopdf.pro" },
       { label: "Docs to Markdown Pro", href: "https://www.docstomarkdown.pro" },
       { label: "Docs to WP Pro", href: "https://www.docstowp.pro" },
+      { label: "Drive Explorer Pro", href: "https://www.driveexplorer.pro" },
     ],
     blog: { label: "Blog", href: "/blog" },
     contact: { label: "Contact Us", href: "/contact" },
@@ -110,18 +112,6 @@ export const siteConfig = {
     description:
       "Our thoughtfully crafted products are designed to automate tasks and optimize workflows, helping businesses and people to operate more efficiently.",
       buttontext:"Explore",
-    actions: [
-      {
-        _id: "view_all",
-        label: "View All Products",
-        href: "/products", // Adjust as per your routing
-      },
-      {
-        _id: "contact_sales",
-        label: "Contact Sales",
-        href: "/contact",
-      },
-    ],
     items: [
       {
         id: 1,
@@ -134,40 +124,40 @@ export const siteConfig = {
       {
         id: 2,
         icon: FaFilePdf,
-        title: "Docs to PDF Pro",
+        title: "Docs to PDF",
         description: "Converts Google Docs into high-quality PDFs.",
         url: "https://www.docstopdf.pro",
       },
       // {
-      //   id: 2,
-      //   icon: FaFileWord,
-      //   title: "PDF to Docs Pro",
-      //   description: "Converts PDF documents into editable Google Docs.",
-      //   url: "https://www.pdftodocs.com",
-      // },
-      // {
-      //   id: 4,
-      //   icon: FaSyncAlt,
-      //   title: "Bulk Converter Pro",
-      //   description: "Converts files from one format to another.",
-      //   url: "https://www.bulkconverter.pro",
-      // },
-      {
-        id: 5,
-        icon: FaMarkdown,
-        title: "Docs to Markdown Pro",
-        description:
+        //   id: 3,
+        //   icon: FaSyncAlt,
+        //   title: "Bulk Converter Pro",
+        //   description: "Converts files from one format to another.",
+        //   url: "https://www.bulkconverter.pro",
+        // },
+        {
+          id: 4,
+          icon: FaMarkdown,
+          title: "Docs to Markdown Pro",
+          description:
           "Converts Google Docs to clean and optimized Markdown or HTML files.",
-        url: "https://www.docstomarkdown.pro",
-      },
-      {
-        id: 6,
-        icon: FaWordpress,
-        title: "Docs to WP Pro",
-        description:
+          url: "https://www.docstomarkdown.pro",
+        },
+        {
+          id: 5,
+          icon: FaWordpress,
+          title: "Docs to WP Pro",
+          description:
           "Publishes Google Docs content as clean HTML directly to your WordPress site.",
-        url: "https://www.docstowp.pro",
-      },
+          url: "https://www.docstowp.pro",
+        },
+        {
+          id: 6,
+          icon: DriveExplorerIcon,
+          title: "Drive Explorer Pro",
+          description: "List files from Google Drive in Google Sheets.",
+          url: "https://www.driveexplorer.pro",
+        },
     ],
   },
 
@@ -324,6 +314,7 @@ export const siteConfig = {
       { label: "Docs to PDF", href: "https://www.docstopdf.pro" },
       { label: "Docs to Markdown Pro", href: "https://www.docstomarkdown.pro" },
       { label: "Docs to WP Pro", href: "https://www.docstowp.pro" },
+      { label: "Drive Explorer Pro", href: "https://www.driveexplorer.pro" },
     ],
     services: [
       { label: "Web Scraping", href: "/services/web-scraping" },

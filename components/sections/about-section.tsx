@@ -7,14 +7,14 @@ import Image from "next/image"
 import DotBadge from "@/components/ui/dotbadge" // Corrected import path
 import ShinyButton from "@/components/ui/shiny-button" // Corrected import path
 
-export default function AboutOption4() {
+export default function About() {
   const sections = [
     {
       id: 1,
       badge: "Our Products",
-      title: "Advanced solutions focused on performance",
+      title: "Advanced solutions, built for performance",
       description:
-        "We create cutting-edge products that solve real-world problems. From custom software applications to scalable platforms, our products are designed with user experience and business impact in mind.",
+        "From greenfields to platform modernization, we handle architecture, development and integration backed by experience and expertise.",
       features: [
         "Custom Software Development",
         "Scalable Platform Solutions",
@@ -28,7 +28,7 @@ export default function AboutOption4() {
     {
       id: 2,
       badge: "Our Services",
-      title: "Comprehensive support every step of the way",
+      title: "End‑to‑end support, every step of the way",
       description:
         "Beyond products, we offer end-to-end services that ensure your success. Our expert team provides consultation, implementation, and ongoing support to maximize your investment.",
       features: [
@@ -83,7 +83,7 @@ export default function AboutOption4() {
             <GradientText className="lg:block mt-2 ml-2">Excellence</GradientText>
           </h1>
           <p className="text-xl font-geist text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
-            We deliver innovative solutions and services that fuel your business growth.
+          We build purposeful solutions - designed to deliver measurable business growth.
           </p>
         </motion.div>
         {/* Sections */}
