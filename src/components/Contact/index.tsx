@@ -8,16 +8,37 @@ const Contact = () => {
   const [thankYouMessage, setThankYouMessage] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false); // State to track loading
 
+  const [captcha, setCaptcha] = useState("");
+  const [userCaptcha, setUserCaptcha] = useState("");
+  const [captchaError, setCaptchaError] = useState(false);
+
+  const generateCaptcha = () => {
+    const chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let result = "";
+    for (let i = 0; i < 6; i++) {
+      result += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    setCaptcha(result);
+  };
+
   React.useEffect(() => {
     setHasMounted(true);
+    generateCaptcha();
   }, []);
 
   if (!hasMounted) {
     return null;
   }
 
-  const handleSubmit = async (event:any) => {
+  const handleSubmit = async (event: any) => {
     event.preventDefault(); // Prevent default form submission behavior
+
+    if (userCaptcha !== captcha) {
+      setCaptchaError(true);
+      return;
+    }
+    setCaptchaError(false);
+
     const form = event.target;
     const formData = new FormData(form);
     setIsSubmitting(true); // Start loading spinner
@@ -95,6 +116,18 @@ const Contact = () => {
                   />
                 </div>
 
+                <div className="mb-7.5">
+                  <input
+                    type="text"
+                    name="subject"
+                    placeholder="Subject"
+                    required
+                    minLength={3}
+                    maxLength={150}
+                    className="w-full border-b border-stroke bg-transparent pb-3.5 focus:border-blue-600 focus:placeholder:text-blue-600 focus-visible:outline-none dark:border-strokedark dark:focus:border-manatee dark:focus:placeholder:text-white"
+                  />
+                </div>
+
                 <div className="mb-11.5 flex">
                   <textarea
                     placeholder="Message"
@@ -105,6 +138,47 @@ const Contact = () => {
                   ></textarea>
                 </div>
 
+                {/* CAPTCHA Section */}
+                <div className="mb-7.5">
+                  <label className="mb-2.5 block text-black dark:text-white">
+                    Verification
+                  </label>
+                  <div className="flex flex-col gap-4 md:flex-row md:items-center">
+                    <div className="flex items-center gap-4">
+                      <div className="select-none rounded border border-stroke bg-gray-100 px-4 py-2 font-mono text-xl font-bold tracking-widest text-black dark:border-strokedark dark:bg-meta-4 dark:text-white">
+                        {captcha}
+                      </div>
+                      <button
+                        type="button"
+                        onClick={generateCaptcha}
+                        className="text-sm text-primary hover:underline dark:text-white"
+                      >
+                        Refresh
+                      </button>
+                    </div>
+                    <div className="flex-1">
+                      <input
+                        type="text"
+                        placeholder="Enter the characters above"
+                        value={userCaptcha}
+                        onChange={(e) => {
+                          setUserCaptcha(e.target.value);
+                          setCaptchaError(false);
+                        }}
+                        className={`w-full rounded border py-2 px-4 focus:outline-none ${captchaError
+                          ? "border-red-500 focus:border-red-500"
+                          : "border-stroke focus:border-primary dark:border-strokedark dark:bg-meta-4 dark:focus:border-white"
+                          }`}
+                      />
+                      {captchaError && (
+                        <p className="mt-1 text-sm text-red-500">
+                          Incorrect CAPTCHA. Please try again.
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
                 <div className="flex justify-start">
                   {thankYouMessage && (
                     <p className="text-green-600 font-bold ">
@@ -112,7 +186,7 @@ const Contact = () => {
                     </p>
                   )}
                 </div>
-                <div className="flex justify-end">  
+                <div className="flex justify-end">
                   <button
                     type="submit"
                     disabled={isSubmitting}
