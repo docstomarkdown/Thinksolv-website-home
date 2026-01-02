@@ -3,16 +3,68 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import React, { useState } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import { useSearchParams } from "next/navigation";
+
+const utmSourceMapping: { [key: string]: string } = {
+  "extension_a": "Support for Extension A",
+  "extension_b": "Support for Extension B",
+  "ext-chatgpt-to-word": "Support for ChatGPT to Word Extension",
+  "extension-ai": "Extension AI",
+  "dynamic-test": "DynamicDynamic Test",
+
+  // Add more mappings as needed
+};
+
+// Helper to format dynamic utm_source values
+const formatUtmSource = (source: string): string => {
+  // Replace hyphens/underscores with spaces
+  const text = source.replace(/[-_]/g, " ");
+  // Capitalize first letter of each word
+  return text.replace(/\b\w/g, (char) => char.toUpperCase());
+};
 
 const Contact = () => {
   const [hasMounted, setHasMounted] = useState(false);
   const [thankYouMessage, setThankYouMessage] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { executeRecaptcha } = useGoogleReCaptcha();
+  const searchParams = useSearchParams();
+
+  const [subject, setSubject] = useState("");
 
   React.useEffect(() => {
     setHasMounted(true);
-  }, []);
+
+    if (searchParams) {
+      const querySubject = searchParams.get("subject");
+      const utmSource = searchParams.get("utm_source");
+
+      if (querySubject) {
+        setSubject(querySubject);
+      } else if (utmSource) {
+        // 1. Check mapping from environment variable (JSON encoded)
+        let envMapping: { [key: string]: string } = {};
+        try {
+          const envMapStr = process.env.NEXT_PUBLIC_UTM_SOURCE_MAP;
+          if (envMapStr) {
+            envMapping = JSON.parse(envMapStr);
+          }
+        } catch (e) {
+          console.error("Failed to parse NEXT_PUBLIC_UTM_SOURCE_MAP", e);
+        }
+
+        // 2. Resolve Subject: Env Mapping -> Hardcoded Mapping -> Dynamic Formatter
+        if (envMapping[utmSource]) {
+          setSubject(envMapping[utmSource]);
+        } else if (utmSourceMapping[utmSource]) {
+          setSubject(utmSourceMapping[utmSource]);
+        } else {
+          const formatted = formatUtmSource(utmSource);
+          setSubject(formatted);
+        }
+      }
+    }
+  }, [searchParams]);
 
   if (!hasMounted) {
     return null;
@@ -129,6 +181,8 @@ const Contact = () => {
                     required
                     minLength={3}
                     maxLength={150}
+                    value={subject}
+                    onChange={(e) => setSubject(e.target.value)}
                     className="w-full border-b border-stroke bg-transparent pb-3.5 focus:border-blue-600 focus:placeholder:text-blue-600 focus-visible:outline-none dark:border-strokedark dark:focus:border-manatee dark:focus:placeholder:text-white"
                   />
                 </div>

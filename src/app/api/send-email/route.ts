@@ -74,6 +74,7 @@ export async function POST(request: Request) {
             Destination: {
                 ToAddresses: [toEmail!],
             },
+            ReplyToAddresses: [email],
             Message: {
                 Subject: {
                     Data: subject,
