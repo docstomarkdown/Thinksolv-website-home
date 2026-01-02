@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 // import Footer from "@/components/Footer";
+import RecaptchaProvider from "@/components/RecaptchaProvider";
 import { ThemeProvider } from '@/components/ThemeProvider';
 import localFont from "next/font/local";
 import "./globals.css";
@@ -28,21 +29,21 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* <!-- Google tag (gtag.js) --> */} 
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-YGZPCFS806"></script> 
-          <script          
-            dangerouslySetInnerHTML={{
-              __html: `window.dataLayer = window.dataLayer || [];   
+        {/* <!-- Google tag (gtag.js) --> */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-YGZPCFS806"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];   
                   function gtag(){dataLayer.push(arguments);}   
                   gtag('js', new Date());   
                   gtag('config', 'G-YGZPCFS806');
                `,
-            }}   
-          />
+          }}
+        />
         {/* Clarity Script */}
         <script
-            dangerouslySetInnerHTML={{
-              __html: `
+          dangerouslySetInnerHTML={{
+            __html: `
                 (function(c, l, a, r, i, t, y) {
                   c[a] = c[a] || function() {
                     (c[a].q = c[a].q || []).push(arguments);
@@ -54,14 +55,16 @@ export default function RootLayout({
                   y.parentNode.insertBefore(t, y);
                 })(window, document, "clarity", "script", "p5nd8jtocs");
               `,
-            }}
-          />  
+          }}
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-        {children}
+          <RecaptchaProvider>
+            {children}
+          </RecaptchaProvider>
         </ThemeProvider>
       </body>
     </html>

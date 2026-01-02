@@ -2,62 +2,68 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import React, { useState } from "react";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 const Contact = () => {
   const [hasMounted, setHasMounted] = useState(false);
   const [thankYouMessage, setThankYouMessage] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false); // State to track loading
-
-  const [captcha, setCaptcha] = useState("");
-  const [userCaptcha, setUserCaptcha] = useState("");
-  const [captchaError, setCaptchaError] = useState(false);
-
-  const generateCaptcha = () => {
-    const chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    let result = "";
-    for (let i = 0; i < 6; i++) {
-      result += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
-    setCaptcha(result);
-  };
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   React.useEffect(() => {
     setHasMounted(true);
-    generateCaptcha();
   }, []);
 
   if (!hasMounted) {
     return null;
   }
 
-  const handleSubmit = async (event: any) => {
-    event.preventDefault(); // Prevent default form submission behavior
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const form = event.currentTarget;
 
-    if (userCaptcha !== captcha) {
-      setCaptchaError(true);
+    if (!executeRecaptcha) {
+      console.log("Execute recaptcha not yet available");
       return;
     }
-    setCaptchaError(false);
 
-    const form = event.target;
-    const formData = new FormData(form);
-    setIsSubmitting(true); // Start loading spinner
+    setIsSubmitting(true);
 
     try {
-      await fetch(
-        "https://script.google.com/macros/s/AKfycbw3C7d6AIU3eXZBS14QM3G-v9lVE1OaXxz46HvEU6Dxq_BCdvtByYiTyi7mc9n3HAIy_w/exec",
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
+      const token = await executeRecaptcha("contact_form_submit");
+
+      if (!token) {
+        alert("Failed to verify CAPTCHA");
+        setIsSubmitting(false);
+        return;
+      }
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...data,
+          captcha: token,
+        }),
+      });
+
+      if (!response.ok) {
+        const result = await response.json();
+        throw new Error(result.error || "Submission failed");
+      }
 
       setThankYouMessage(true);
-      form.reset(); // Clear the form after submission
+      form.reset();
     } catch (error) {
       console.error("Submission failed", error);
+      alert("Failed to send message. Please try again.");
     } finally {
-      setIsSubmitting(false); // Stop loading spinner
+      setIsSubmitting(false);
     }
   };
 
@@ -65,7 +71,6 @@ const Contact = () => {
     <>
       <section id="support" className="">
         <div className="relative mx-auto pt-10 lg:px-15 lg:pt-15 xl:px-20 xl:pt-20">
-          {/* Background shapes */}
           <div className="absolute left-0 top-0 -z-1 h-2/3 w-full rounded-lg bg-gradient-to-t from-transparent to-[#dee7ff47] dark:bg-black"></div>
           <div className="absolute bottom-[-255px] left-0 -z-1 h-full w-full">
             <Image
@@ -138,65 +143,26 @@ const Contact = () => {
                   ></textarea>
                 </div>
 
-                {/* CAPTCHA Section */}
-                <div className="mb-7.5">
-                  <label className="mb-2.5 block text-black dark:text-white">
-                    Verification
-                  </label>
-                  <div className="flex flex-col gap-4 md:flex-row md:items-center">
-                    <div className="flex items-center gap-4">
-                      <div className="select-none rounded border border-stroke bg-gray-100 px-4 py-2 font-mono text-xl font-bold tracking-widest text-black dark:border-strokedark dark:bg-meta-4 dark:text-white">
-                        {captcha}
-                      </div>
-                      <button
-                        type="button"
-                        onClick={generateCaptcha}
-                        className="text-sm text-primary hover:underline dark:text-white"
-                      >
-                        Refresh
-                      </button>
-                    </div>
-                    <div className="flex-1">
-                      <input
-                        type="text"
-                        placeholder="Enter the characters above"
-                        value={userCaptcha}
-                        onChange={(e) => {
-                          setUserCaptcha(e.target.value);
-                          setCaptchaError(false);
-                        }}
-                        className={`w-full rounded border py-2 px-4 focus:outline-none ${captchaError
-                          ? "border-red-500 focus:border-red-500"
-                          : "border-stroke focus:border-primary dark:border-strokedark dark:bg-meta-4 dark:focus:border-white"
-                          }`}
-                      />
-                      {captchaError && (
-                        <p className="mt-1 text-sm text-red-500">
-                          Incorrect CAPTCHA. Please try again.
-                        </p>
-                      )}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex justify-start">
-                  {thankYouMessage && (
-                    <p className="text-green-600 font-bold ">
-                      Thanks for reaching out! Our team is now on it!
-                    </p>
-                  )}
-                </div>
-                <div className="flex justify-end">
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="flex items-center justify-center gap-2 text-center px-6 py-2 font-bold rounded-md border dark:bg-black dark:border-white dark:text-white border-black bg-white text-black text-lg hover:shadow-[5px_5px_0px_0px_rgba(0,0,0)] dark:hover:shadow-[5px_5px_0px_0px_rgba(255,255,255)] transition duration-200 disabled:cursor-not-allowed disabled:opacity-50"
-                  >
-                    {isSubmitting && (
-                      <span className="loader border-2 border-t-2 border-black dark:border-white border-t-transparent rounded-full w-4 h-4 animate-spin"></span>
+                <div className="flex flex-col-reverse items-center justify-between gap-4 md:flex-row">
+                  <div className="flex justify-start">
+                    {thankYouMessage && (
+                      <p className="text-green-600 font-bold">
+                        Thanks for reaching out! Our team is now on it!
+                      </p>
                     )}
-                    {isSubmitting ? "Sending..." : "Send Message"}
-                  </button>
+                  </div>
+                  <div className="flex justify-end w-full md:w-auto">
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="flex items-center justify-center gap-2 text-center px-6 py-2 font-bold rounded-md border dark:bg-black dark:border-white dark:text-white border-black bg-white text-black text-lg hover:shadow-[5px_5px_0px_0px_rgba(0,0,0)] dark:hover:shadow-[5px_5px_0px_0px_rgba(255,255,255)] transition duration-200 disabled:cursor-not-allowed disabled:opacity-50 w-full md:w-auto"
+                    >
+                      {isSubmitting && (
+                        <span className="loader border-2 border-t-2 border-black dark:border-white border-t-transparent rounded-full w-4 h-4 animate-spin"></span>
+                      )}
+                      {isSubmitting ? "Sending..." : "Send Message"}
+                    </button>
+                  </div>
                 </div>
               </form>
             </motion.div>
