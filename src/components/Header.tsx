@@ -109,7 +109,7 @@ const Header: React.FC = () => {
                 <NavigationMenuTrigger>Products</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid gap-3 p-4 lg:w-[250px]">
-                  <li>
+                    <li>
                       <NavigationMenuLink asChild>
                         <a href="https://www.mergedocs.pro" target="_blank" rel="noopener noreferrer" className="block p-3 rounded-md hover:bg-blue-200 dark:hover:bg-gray-800 transition">
                           Merge Docs Pro
@@ -169,7 +169,7 @@ const Header: React.FC = () => {
           <div className="flex items-center space-x-4">
             <ThemeToggler />
             <a href="/contact" className="hidden md:block">
-              <button className="text-center px-6 py-2 font-bold rounded-md border dark:bg-black dark:border-white dark:text-white border-black bg-white text-black text-lg hover:shadow-[5px_5px_0px_0px_rgba(0,0,0)] dark:hover:shadow-[5px_5px_0px_0px_rgba(255,255,255)] transition duration-200">
+              <button className="text-center px-6 py-2 font-semibold rounded-md border dark:bg-black dark:border-white dark:text-white border-black bg-white text-black text-base hover:shadow-[5px_5px_0px_0px_rgba(0,0,0)] dark:hover:shadow-[5px_5px_0px_0px_rgba(255,255,255)] transition duration-200">
                 Contact Us
               </button>
             </a>

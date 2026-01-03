@@ -15,17 +15,7 @@ const SupportPage = () => {
   return (
     <>
       <Header />
-      <div className="pt-5">
-        <SectionHeader
-          headerInfo={{
-            title: "Contact",
-            subtitle: "Contact Us",
-            description:
-              "Reach out to us today to ask any questions about our products or discover how we can help your business automate tasks, streamline processes, boost productivity, and save valuable time."
-          }}
-        />
-      </div>
-      <div className="pb-10 pt-10">
+      <div className="pb-5 pt-8">
         <Suspense fallback={<div>Loading...</div>}>
           <Contact />
         </Suspense>
