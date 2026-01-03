@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import MainHero from "@/components/Hero";
 import Header from "@/components/Header";
 // import Features from "@/components/Features";
@@ -27,7 +27,9 @@ export default function Home() {
       {/* <Map /> */}
       {/*<AnimatedTestimonialsDemo />*/}
       <FAQ />
-      <Contact />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Contact />
+      </Suspense>
       <Footer />
     </>
   );

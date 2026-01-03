@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import Contact from "@/components/Contact";
 import SectionHeader from "@/components/Common/SectionHeader";
 import Header from "@/components/Header";
@@ -14,9 +14,9 @@ export const metadata: Metadata = {
 const SupportPage = () => {
   return (
     <>
-    <Header />
-    <div className="pt-5">
-    <SectionHeader 
+      <Header />
+      <div className="pt-5">
+        <SectionHeader
           headerInfo={{
             title: "Contact",
             subtitle: "Contact Us",
@@ -24,12 +24,14 @@ const SupportPage = () => {
               "Reach out to us today to ask any questions about our products or discover how we can help your business automate tasks, streamline processes, boost productivity, and save valuable time."
           }}
         />
-     </div>   
-    <div className="pb-10 pt-10">
-      <Contact />
-    </div>
-    <Footer />
-  </>  
+      </div>
+      <div className="pb-10 pt-10">
+        <Suspense fallback={<div>Loading...</div>}>
+          <Contact />
+        </Suspense>
+      </div>
+      <Footer />
+    </>
   );
 };
 

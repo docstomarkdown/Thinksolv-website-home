@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { Suspense } from 'react';
 import HeroSection from './HeroSection';
 import Header from '@/components/Header';
 import { motion } from "framer-motion";
@@ -7,7 +7,7 @@ import Working from './Use cases';
 import AnimatedTestimonialsDemo from '@/components/Testimonials';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
-import {CheckCircle2} from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 
 
 // **Main App**
@@ -18,8 +18,10 @@ export default function Landing() {
       <HeroSection />
       <Working />
       <Benefits />
-     
-      <Contact />
+
+      <Suspense fallback={<div>Loading...</div>}>
+        <Contact />
+      </Suspense>
       <Footer />
     </div>
   );
