@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/Hero.css';
-import BrickAnimation from './BrickAnimation';
+import FileCreationAnimation from './FileCreationAnimation';
 
 const Hero = () => {
   return (
@@ -27,7 +27,7 @@ const Hero = () => {
       </div>
       
       <div className="hero-visual">
-        <BrickAnimation />
+        <FileCreationAnimation />
       </div>
     </section>
   );

@@ -1,0 +1,293 @@
+/* Funnel of Clarity Animation */
+.file-creation-container {
+    width: 420px;
+    height: 480px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Input icons - Scene 1 & 2: Float in and converge */
+.input-icons-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.input-icon-item {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+    transform-origin: center;
+    animation: inputFunnelCycle 6s ease-in-out infinite;
+    animation-delay: var(--delay, 0s);
+}
+
+.input-icon-item img,
+.input-icon-item svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.1));
+    opacity: 0.7;
+}
+
+.input-icon-item svg {
+    color: #C41E3A; /* Match brand color */
+}
+
+/* Animation cycle for inputs:
+   0-25%: Float in from sides (Scene 1)
+   25-50%: Curve toward center, reduce size (Scene 2 - funnel)
+   50-55%: Overlap at center, pause (Scene 3 - processing)
+   55-60%: Fade out
+   60-100%: Hidden (outputs visible)
+*/
+@keyframes inputFunnelCycle {
+    /* Scene 1: Float in from different sides (0-25% = 0-1.5s) */
+    0% {
+        left: var(--start-x);
+        top: var(--start-y);
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0;
+    }
+    5% {
+        opacity: 0.7;
+    }
+    10% {
+        transform: translate(-50%, -50%) scale(1.05);
+    }
+    15% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    20% {
+        transform: translate(-50%, -50%) scale(0.98);
+    }
+    25% {
+        left: var(--start-x);
+        top: var(--start-y);
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.7;
+    }
+    
+    /* Scene 2: Curve toward center, reduce size (25-50% = 1.5-3s) */
+    30% {
+        /* Start curving - calculate midpoint for curve */
+        left: calc((var(--start-x) + var(--end-x)) / 2);
+        top: calc((var(--start-y) + var(--end-y)) / 2);
+        transform: translate(-50%, -50%) scale(0.85);
+        opacity: 0.7;
+    }
+    40% {
+        /* Approach center but with slight offset to avoid exact overlap */
+        left: calc(var(--end-x) + 3%);
+        top: calc(var(--end-y) + 2%);
+        transform: translate(-50%, -50%) scale(0.65);
+        opacity: 0.6;
+    }
+    45% {
+        /* Get closer, smaller, more transparent */
+        left: calc(var(--end-x) + 1%);
+        top: calc(var(--end-y) + 1%);
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 0.4;
+    }
+    48% {
+        /* Almost at center, very small and fading */
+        left: var(--end-x);
+        top: var(--end-y);
+        transform: translate(-50%, -50%) scale(0.4);
+        opacity: 0.3;
+    }
+    50% {
+        /* At center but very small and almost invisible */
+        left: var(--end-x);
+        top: var(--end-y);
+        transform: translate(-50%, -50%) scale(0.35);
+        opacity: 0.2;
+    }
+    
+    /* Scene 3: Processing pause - icons already mostly faded (50-55% = 3-3.3s) */
+    52% {
+        left: var(--end-x);
+        top: var(--end-y);
+        transform: translate(-50%, -50%) scale(0.3);
+        opacity: 0.15;
+    }
+    55% {
+        left: var(--end-x);
+        top: var(--end-y);
+        transform: translate(-50%, -50%) scale(0.25);
+        opacity: 0;
+    }
+    
+    /* Already faded out (55-60% = 3.3-3.6s) */
+    60% {
+        left: var(--end-x);
+        top: var(--end-y);
+        transform: translate(-50%, -50%) scale(0.2);
+        opacity: 0;
+    }
+    
+    /* Hidden during output phase (60-100% = 3.6-6s) */
+    100% {
+        left: var(--end-x);
+        top: var(--end-y);
+        transform: translate(-50%, -50%) scale(0.6);
+        opacity: 0;
+    }
+}
+
+/* Processing moment - Scene 3 */
+.processing-moment {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.processing-glow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(196, 30, 58, 0.15) 0%, transparent 70%);
+    opacity: 0;
+    animation: processingPulse 6s ease-in-out infinite;
+    animation-delay: 3s; /* Start at 50% of cycle */
+}
+
+@keyframes processingPulse {
+    /* Hidden before processing */
+    0%, 49% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    /* Appear during processing pause (50-55%) */
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    52% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+    55% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    /* Fade out */
+    58% {
+        opacity: 0.5;
+    }
+    60%, 100% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+}
+
+/* Output icons - Scene 4 */
+.output-icons-wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 30px;
+    z-index: 10;
+}
+
+.output-icon-item {
+    width: 70px;
+    height: 70px;
+    opacity: 0;
+    transform: scale(0.5) translateY(20px);
+    animation: outputEmerge 6s ease-in-out infinite;
+}
+
+.output-icon-item img {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 4px 12px rgba(196, 30, 58, 0.25));
+}
+
+.output-doc {
+    animation-delay: 3.3s; /* Start after processing */
+}
+
+.output-pdf {
+    animation-delay: 3.4s; /* Slight stagger */
+}
+
+@keyframes outputEmerge {
+    /* Hidden during input phase */
+    0%, 54% {
+        opacity: 0;
+        transform: scale(0.5) translateY(20px);
+    }
+    /* Emerge (55-65% = 3.3-3.9s) */
+    55% {
+        opacity: 0;
+        transform: scale(0.6) translateY(15px);
+    }
+    60% {
+        opacity: 1;
+        transform: scale(1.05) translateY(-5px);
+    }
+    65% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+    /* Stable (65-85% = 3.9-5.1s) */
+    70%, 80% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+    /* Fade out for loop (85-100% = 5.1-6s) */
+    85% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+    90% {
+        opacity: 0.5;
+        transform: scale(0.95) translateY(5px);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.8) translateY(10px);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .file-creation-container {
+        width: 100%;
+        max-width: 320px;
+        height: 360px;
+        margin: 0 auto;
+    }
+    
+    .input-icon-item {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .output-icon-item {
+        width: 55px;
+        height: 55px;
+    }
+    
+    .output-icons-wrapper {
+        gap: 20px;
+    }
+    
+    .processing-moment {
+        width: 80px;
+        height: 80px;
+    }
+}
