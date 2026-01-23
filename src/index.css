@@ -1,45 +1,81 @@
 :root {
-    /* Colors - Premium Minimal Palette */
-    --color-primary: #E91C24;
-    /* Brand Red */
-    --color-bg: #FAFAFA;
-    /* Very light off-white, warmer than pure white */
+    /* Colors - Premium Sophisticated Palette */
+    --color-primary: #C41E3A;
+    /* Deep sophisticated red - more premium than bright red */
+    --color-primary-light: #E63950;
+    /* Lighter red for accents */
+    --color-primary-dark: #9B1528;
+    /* Darker red for depth */
+    
+    --color-bg: #FEFCFB;
+    /* Warm cream/ivory - premium and inviting */
     --color-bg-alt: #FFFFFF;
     /* Pure white for cards/contrast */
-    --color-text-main: #1A1A1A;
-    /* Softer than #000 */
-    --color-text-muted: #555555;
-    /* Refined gray */
-    --color-border: #E5E5E5;
+    --color-bg-elevated: #FFFFFF;
+    /* Elevated surfaces */
+    --color-bg-warm: #FFF9F5;
+    /* Warmer tone for gradients */
+    
+    --color-text-main: #0A0A0A;
+    /* Deep charcoal - premium black */
+    --color-text-secondary: #2D2D2D;
+    /* Secondary text */
+    --color-text-muted: #6B7280;
+    /* Refined muted gray - more sophisticated */
+    --color-text-subtle: #9CA3AF;
+    /* Subtle text */
+    
+    --color-border: #E5E7EB;
+    /* Refined border color */
+    --color-border-subtle: #F3F4F6;
+    /* Very subtle borders */
+    
+    /* Accent colors for depth */
+    --color-accent-blue: #3B82F6;
+    --color-accent-teal: #14B8A6;
+    --color-accent-amber: #F59E0B;
 
     /* Typography */
-    --font-family: 'Google Sans Flex', system-ui, -apple-system, sans-serif;
+    --font-family: 'Google Sans Flex', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
 
-    /* Type Scale */
-    --font-size-xs: 12px;
-    --font-size-sm: 14px;
+    /* Type Scale - Refined */
+    --font-size-xs: 11px;
+    --font-size-sm: 13px;
     --font-size-base: 16px;
     --font-size-lg: 20px;
     --font-size-xl: 24px;
     --font-size-2xl: 32px;
     --font-size-3xl: 48px;
-    --font-size-4xl: 64px;
+    --font-size-4xl: 72px;
 
-    --line-height-base: 1.6;
-    /* Increased for better readability */
-    --line-height-tight: 1.2;
+    --line-height-base: 1.65;
+    /* Premium line height for readability */
+    --line-height-tight: 1.15;
+    --line-height-relaxed: 1.75;
 
-    /* Spacing */
+    /* Spacing - More generous for premium feel */
     --spacing-xs: 4px;
     --spacing-sm: 8px;
     --spacing-md: 16px;
     --spacing-lg: 32px;
     --spacing-xl: 64px;
     --spacing-xxl: 120px;
+    --spacing-xxxl: 160px;
 
     /* Layout */
-    --container-width: 1200px;
+    --container-width: 1280px;
     --header-height: 80px;
+    
+    /* Shadows - Premium depth */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+    
+    /* Transitions */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -48,29 +84,80 @@ body {
     color: var(--color-text-main);
     line-height: var(--line-height-base);
     -webkit-font-smoothing: antialiased;
-    letter-spacing: -0.01em;
-    /* Tighten slightly for modern feel */
-    /* Premium Background - Elegant Atmosphere (High Visibility) */
-    background-color: #FAFAFA;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.011em;
+    font-weight: 400;
+    
+    /* Premium Background - Warm and Patterned */
+    background-color: var(--color-bg);
     background-image:
-        /* Noise Texture - Boosted Opacity (15%) for visibility */
-        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E"),
+        /* Big squares pattern - subtle and aesthetic */
+        linear-gradient(rgba(196, 30, 58, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(196, 30, 58, 0.04) 1px, transparent 1px),
+        
+        /* Subtle dot pattern overlay */
+        radial-gradient(circle at 1px 1px, rgba(196, 30, 58, 0.03) 1px, transparent 0),
+        
+        /* Grid pattern - very subtle */
+        linear-gradient(rgba(196, 30, 58, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(196, 30, 58, 0.02) 1px, transparent 1px),
+        
+        /* Top highlight with warm tone */
+        radial-gradient(circle at 50% 0%, rgba(255, 249, 245, 0.8) 0%, transparent 60%),
+        
+        /* Warm accent glows */
+        radial-gradient(circle at 15% 25%, rgba(196, 30, 58, 0.04) 0%, transparent 50%),
+        radial-gradient(circle at 85% 75%, rgba(20, 184, 166, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 50% 100%, rgba(59, 130, 246, 0.02) 0%, transparent 50%),
+        
+        /* Base warm gradient */
+        linear-gradient(180deg, #FEFCFB 0%, #FFF9F5 50%, #FEFCFB 100%);
 
-        /* Top-center highlight - Stronger */
-        radial-gradient(circle at 50% 0%, #FFFFFF 0%, transparent 70%),
-
-        /* Deep Teal/Cyan Glow - Stronger (18%) */
-        radial-gradient(circle at 85% 10%, rgba(0, 150, 136, 0.18) 0%, transparent 60%),
-
-        /* Deep Slate/Indigo Glow - Stronger (18%) */
-        radial-gradient(circle at 0% 90%, rgba(44, 62, 80, 0.18) 0%, transparent 60%),
-
-        /* Base subtle gradient */
-        linear-gradient(180deg, #FAFAFA 0%, #E8EAED 100%);
-
-    background-size: 200px 200px, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+    background-size: 
+        120px 120px, 120px 120px,  /* Big squares pattern */
+        40px 40px,  /* Dot pattern */
+        80px 80px, 80px 80px,  /* Grid pattern */
+        100% 100%,  /* Top highlight */
+        100% 100%, 100% 100%, 100% 100%,  /* Accent glows */
+        100% 100%;  /* Base gradient */
     background-attachment: fixed;
     min-height: 100vh;
+    position: relative;
+}
+
+/* Add a subtle overlay pattern for extra depth */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        /* Diagonal lines pattern - very subtle */
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 2px,
+            rgba(196, 30, 58, 0.01) 2px,
+            rgba(196, 30, 58, 0.01) 4px
+        ),
+        repeating-linear-gradient(
+            -45deg,
+            transparent,
+            transparent 2px,
+            rgba(20, 184, 166, 0.01) 2px,
+            rgba(20, 184, 166, 0.01) 4px
+        );
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+}
+
+/* Ensure content is above the pattern overlay */
+.layout-wrapper {
+    position: relative;
+    z-index: 1;
 }
 
 h1,
@@ -80,13 +167,20 @@ h4,
 h5,
 h6 {
     margin: 0;
-    font-weight: 500;
+    font-weight: 600;
     line-height: var(--line-height-tight);
+    letter-spacing: -0.02em;
+    color: var(--color-text-main);
 }
 
 a {
     text-decoration: none;
     color: inherit;
+    transition: color var(--transition-base);
+}
+
+a:hover {
+    color: var(--color-primary);
 }
 
 ul {

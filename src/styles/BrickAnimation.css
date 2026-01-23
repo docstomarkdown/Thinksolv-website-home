@@ -1,64 +1,338 @@
-.masonry-grid {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-auto-rows: 40px;
-    gap: 8px;
-    width: 360px;
-    height: 400px;
-    /* Constrain height */
-    overflow: hidden;
-    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-    /* Fade out at bottom */
-    -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+/* Premium Thoughtful Building Animation */
+.thoughtful-building {
+    width: 420px;
+    height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
 
-.brick {
-    background-color: var(--color-primary);
-    /* Use brand color logic in animation */
-    /* We want very subtle blocks. */
-    background-color: #EAEAEA;
-    /* Slightly darker than bg to stand out but remain subtle */
-    border-radius: 2px;
+.building-container {
     width: 100%;
     height: 100%;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 40px;
 }
 
-/* Add varied colors/shades via nth-child or similar if simple, 
-   but let's do it via classes or just varied opacity on a base color */
-
-.brick {
-    background-color: #DDDDDD;
-    /* Refined neutral */
+.building-layer {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    height: var(--layer-height, 20%);
+    min-height: 60px;
+    background: linear-gradient(180deg, 
+        rgba(255, 255, 255, 0.98) 0%,
+        rgba(255, 255, 255, 0.99) 30%,
+        rgba(248, 249, 250, 0.97) 70%,
+        rgba(245, 247, 250, 0.95) 100%);
+    border-radius: 14px;
+    border: 1.5px solid rgba(196, 30, 58, 0.1);
+    box-shadow: 
+        0 6px 20px rgba(0, 0, 0, 0.05),
+        0 3px 8px rgba(0, 0, 0, 0.03),
+        inset 0 1px 2px rgba(255, 255, 255, 0.95),
+        inset 0 -1px 1px rgba(0, 0, 0, 0.02);
+    opacity: 0;
+    animation: thoughtfulBuild 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
-.brick-accent {
-    background-color: var(--color-primary);
-    /* Ensure opacity is handled correctly by animation, 
-       but we might want accents to be slightly more visible */
+/* Each layer gets progressively more refined - building from bottom up */
+.building-layer:nth-child(1) {
+    --layer-height: 20%;
+    bottom: 40px;
+    z-index: 1;
+    /* Foundation layer - bottom, appears first */
+    background: linear-gradient(180deg, 
+        rgba(255, 255, 255, 0.99) 0%,
+        rgba(255, 255, 255, 0.98) 25%,
+        rgba(248, 249, 250, 0.96) 75%,
+        rgba(245, 247, 250, 0.94) 100%);
+    border-color: rgba(196, 30, 58, 0.12);
 }
 
-.span-1 {
-    grid-row: span 1;
+.building-layer:nth-child(2) {
+    --layer-height: 18%;
+    bottom: calc(40px + 20%);
+    z-index: 2;
+    /* Structure layer - stacks on foundation */
+    background: linear-gradient(180deg, 
+        rgba(255, 255, 255, 0.99) 0%,
+        rgba(255, 255, 255, 0.98) 30%,
+        rgba(248, 249, 250, 0.97) 70%,
+        rgba(245, 247, 250, 0.95) 100%);
+    border-color: rgba(196, 30, 58, 0.11);
 }
 
-.span-2 {
-    grid-row: span 2;
+.building-layer:nth-child(3) {
+    --layer-height: 16%;
+    bottom: calc(40px + 20% + 18%);
+    z-index: 3;
+    /* Integration layer */
+    background: linear-gradient(180deg, 
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 0.99) 30%,
+        rgba(248, 249, 250, 0.98) 70%,
+        rgba(245, 247, 250, 0.96) 100%);
+    border-color: rgba(196, 30, 58, 0.11);
 }
 
-/* Animation */
-.brick {
-    animation: masonryFadeIn 2s ease-out forwards;
+.building-layer:nth-child(4) {
+    --layer-height: 14%;
+    bottom: calc(40px + 20% + 18% + 16%);
+    z-index: 4;
+    /* Refinement layer */
+    background: linear-gradient(180deg, 
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 0.99) 30%,
+        rgba(248, 249, 250, 0.99) 70%,
+        rgba(245, 247, 250, 0.97) 100%);
+    border-color: rgba(196, 30, 58, 0.12);
 }
 
-@keyframes masonryFadeIn {
-    from {
+.building-layer:nth-child(5) {
+    --layer-height: 12%;
+    bottom: calc(40px + 20% + 18% + 16% + 14%);
+    z-index: 5;
+    /* Solution layer - top, appears last */
+    background: linear-gradient(180deg, 
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 1) 30%,
+        rgba(248, 249, 250, 1) 70%,
+        rgba(245, 247, 250, 0.98) 100%);
+    border-color: rgba(196, 30, 58, 0.15);
+    box-shadow: 
+        0 8px 24px rgba(0, 0, 0, 0.06),
+        0 4px 10px rgba(0, 0, 0, 0.04),
+        inset 0 1px 2px rgba(255, 255, 255, 1),
+        inset 0 -1px 1px rgba(0, 0, 0, 0.02),
+        0 0 0 1px rgba(196, 30, 58, 0.06);
+}
+
+/* Thoughtful build animation - layers build from bottom up */
+@keyframes thoughtfulBuild {
+    0% {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateX(-50%) translateY(40px) scale(0.94);
     }
+    50% {
+        opacity: 0.8;
+        transform: translateX(-50%) translateY(5px) scale(0.98);
+    }
+    80% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(-3px) scale(1.01);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0) scale(1);
+    }
+}
 
-    to {
-        opacity: var(--target-opacity, 0.3);
-        /* Use css var for random opacity */
-        transform: translateY(0);
+/* Layer content with subtle shine effect */
+.layer-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(248, 249, 250, 0.2) 0%, transparent 50%);
+}
+
+.layer-shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent 0%,
+        rgba(255, 255, 255, 0.4) 50%,
+        transparent 100%);
+    animation: shineSweep 3s ease-in-out infinite;
+    animation-delay: calc(var(--layer-index) * 0.5s + 2.5s);
+}
+
+@keyframes shineSweep {
+    0% {
+        left: -100%;
+    }
+    50% {
+        left: 100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+/* Subtle shadow beneath each layer */
+.layer-shadow {
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    height: 8px;
+    background: radial-gradient(ellipse, rgba(0, 0, 0, 0.08) 0%, transparent 70%);
+    opacity: 0;
+    animation: shadowFadeIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    animation-delay: calc(var(--layer-index) * 0.1s);
+}
+
+@keyframes shadowFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+    }
+}
+
+/* Accent dots representing thoughtful details */
+.accent-dots {
+    position: absolute;
+    top: 0;
+    right: -30px;
+    width: 120px;
+    height: 100%;
+    pointer-events: none;
+}
+
+.dot {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    opacity: 0;
+    animation: dotAppear 0.6s ease-out forwards;
+    box-shadow: 0 0 8px rgba(196, 30, 58, 0.3);
+}
+
+.dot-1 {
+    top: 15%;
+    right: 20px;
+    animation-delay: 3s;
+}
+
+.dot-2 {
+    top: 35%;
+    right: 40px;
+    animation-delay: 3.3s;
+}
+
+.dot-3 {
+    top: 55%;
+    right: 25px;
+    animation-delay: 3.6s;
+}
+
+.dot-4 {
+    top: 75%;
+    right: 45px;
+    animation-delay: 3.9s;
+}
+
+@keyframes dotAppear {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+}
+
+/* Continuous subtle pulse for completed structure */
+.building-layer:nth-child(5) {
+    animation: thoughtfulBuild 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
+               subtleCompletion 4s ease-in-out infinite 3.2s;
+}
+
+@keyframes subtleCompletion {
+    0%, 100% {
+        box-shadow: 
+            0 6px 16px rgba(0, 0, 0, 0.06),
+            0 3px 6px rgba(0, 0, 0, 0.03),
+            inset 0 1px 0 rgba(255, 255, 255, 1),
+            0 0 0 1px rgba(196, 30, 58, 0.05);
+    }
+    50% {
+        box-shadow: 
+            0 8px 20px rgba(0, 0, 0, 0.08),
+            0 4px 8px rgba(0, 0, 0, 0.04),
+            inset 0 1px 0 rgba(255, 255, 255, 1),
+            0 0 0 1px rgba(196, 30, 58, 0.08),
+            0 0 20px rgba(196, 30, 58, 0.06);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .thoughtful-building {
+        width: 100%;
+        max-width: 320px;
+        height: 360px;
+        margin: 0 auto;
+    }
+    
+    .building-container {
+        padding-bottom: 30px;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .building-layer {
+        min-height: 50px;
+        border-radius: 12px;
+    }
+    
+    /* Adjust bottom positions for mobile */
+    .building-layer:nth-child(1) {
+        bottom: 30px;
+    }
+    
+    .building-layer:nth-child(2) {
+        bottom: calc(30px + 20%);
+    }
+    
+    .building-layer:nth-child(3) {
+        bottom: calc(30px + 20% + 18%);
+    }
+    
+    .building-layer:nth-child(4) {
+        bottom: calc(30px + 20% + 18% + 16%);
+    }
+    
+    .building-layer:nth-child(5) {
+        bottom: calc(30px + 20% + 18% + 16% + 14%);
+    }
+    
+    .accent-dots {
+        right: -15px;
+        width: 60px;
+    }
+    
+    .dot {
+        width: 4px;
+        height: 4px;
+    }
+    
+    .layer-shadow {
+        height: 6px;
     }
 }

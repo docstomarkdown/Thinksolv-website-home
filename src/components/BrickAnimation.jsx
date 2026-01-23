@@ -2,47 +2,52 @@ import React, { useEffect, useState } from 'react';
 import '../styles/BrickAnimation.css';
 
 const BrickAnimation = () => {
-    // Generate bricks with different sizes for masonry effect
-    const [bricks, setBricks] = useState([]);
+    const [layers, setLayers] = useState([]);
 
     useEffect(() => {
-        const generateBricks = () => {
-            const count = 30; // Fewer bricks for cleaner masonry
-            const newBricks = Array.from({ length: count }, (_, i) => {
-                const heightType = Math.random();
-                let span = 1;
-                if (heightType > 0.6) span = 2; // Some taller bricks
-                
-                // 10% chance of being an accent brick
-                const isAccent = Math.random() > 0.9; 
-                
-                return {
-                    id: i,
-                    span: span,
-                    isAccent: isAccent,
-                    delay: Math.random() * 2,
-                    opacity: 0.1 + Math.random() * 0.4 // Varied base opacity for texture
-                };
-            });
-            setBricks(newBricks);
+        // Create 5 thoughtful layers representing building solutions step by step
+        const createLayers = () => {
+            const layerData = [
+                { id: 0, width: '100%', height: '20%', delay: 0, label: 'Foundation' },
+                { id: 1, width: '85%', height: '18%', delay: 0.6, label: 'Structure' },
+                { id: 2, width: '70%', height: '16%', delay: 1.2, label: 'Integration' },
+                { id: 3, width: '55%', height: '14%', delay: 1.8, label: 'Refinement' },
+                { id: 4, width: '40%', height: '12%', delay: 2.4, label: 'Solution' },
+            ];
+            setLayers(layerData);
         };
         
-        generateBricks();
+        createLayers();
     }, []);
 
     return (
-        <div className="masonry-grid">
-            {bricks.map((brick) => (
-                <div 
-                    key={brick.id} 
-                    className={`brick span-${brick.span} ${brick.isAccent ? 'brick-accent' : ''}`} 
-                    style={{ 
-                        animationDelay: `${brick.delay}s`,
-                        opacity: 0, // Start invisible for fadeIn
-                        '--target-opacity': brick.opacity 
-                    }}
-                />
-            ))}
+        <div className="thoughtful-building">
+            <div className="building-container">
+                {layers.map((layer, index) => (
+                    <div
+                        key={layer.id}
+                        className="building-layer"
+                        style={{
+                            width: layer.width,
+                            animationDelay: `${layer.delay}s`,
+                            '--layer-index': index,
+                        }}
+                    >
+                        <div className="layer-content">
+                            <div className="layer-shine"></div>
+                        </div>
+                        <div className="layer-shadow"></div>
+                    </div>
+                ))}
+                
+                {/* Decorative accent dots representing thoughtful details */}
+                <div className="accent-dots">
+                    <div className="dot dot-1"></div>
+                    <div className="dot dot-2"></div>
+                    <div className="dot dot-3"></div>
+                    <div className="dot dot-4"></div>
+                </div>
+            </div>
         </div>
     );
 };

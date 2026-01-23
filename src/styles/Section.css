@@ -1,23 +1,72 @@
 .section-container {
-    padding: var(--spacing-xxl) 0;
-    /* Remove full width border */
-    /* border-top: 1px solid var(--color-border); */
+    padding: var(--spacing-xxxl) 0;
     background-color: transparent;
-    /* Ensure body background shows through */
     display: flex;
     flex-direction: column;
-    /* Fixed title width, rest for content */
-    gap: var(--spacing-md);
-    /* Closer gap between Title and Content */
+    gap: var(--spacing-lg);
     position: relative;
     overflow: visible;
-    /* Allow decorators to hang */
+    transition: all var(--transition-base);
 }
 
-/* Remove decorative + sign */
-.section-container::before {
-    display: none;
+/* Decorative dotted pattern on the right side with smooth continuous animation */
+.section-container::after {
+    content: '';
+    position: absolute;
+    right: -180px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 350px;
+    height: 350px;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.2;
+    
+    /* Multi-layered dotted pattern */
+    background-image: 
+        radial-gradient(circle, var(--color-primary) 2.5px, transparent 2.5px),
+        radial-gradient(circle, var(--color-primary) 2px, transparent 2px),
+        radial-gradient(circle, var(--color-primary) 1.5px, transparent 1.5px);
+    background-size: 30px 30px, 38px 38px, 46px 46px;
+    background-position: 0 0, 15px 15px, 23px 23px;
+    background-repeat: repeat;
+    
+    /* Smooth continuous animation - gentle drift */
+    animation: smoothDrift 20s linear infinite;
+    
+    /* Add a subtle glow */
+    filter: blur(0.5px);
 }
+
+/* Smooth drifting animation for dotted pattern */
+@keyframes smoothDrift {
+    0% {
+        transform: translateY(-50%) translateX(0);
+        opacity: 0.2;
+    }
+    25% {
+        transform: translateY(-50%) translateX(-5px) translateY(-3px);
+        opacity: 0.22;
+    }
+    50% {
+        transform: translateY(-50%) translateX(0) translateY(-5px);
+        opacity: 0.2;
+    }
+    75% {
+        transform: translateY(-50%) translateX(5px) translateY(-3px);
+        opacity: 0.22;
+    }
+    100% {
+        transform: translateY(-50%) translateX(0);
+        opacity: 0.2;
+    }
+}
+
+/* Animation removed - using smoothDrift for dots only */
+
+/* Removed hover animations for cleaner experience */
+
+/* Note: ::before is now used for geometric decorative pattern */
 
 /* Remove Number styles - or just ignore them since we remove from DOM */
 .section-number {
@@ -29,6 +78,15 @@
         grid-template-columns: 1fr;
         padding: var(--spacing-xl) 0;
     }
+
+    .section-container::after {
+        right: -80px;
+        width: 250px;
+        height: 250px;
+        opacity: 0.12;
+    }
+
+    /* Removed ::before pattern for mobile */
 
     .section-number {
         font-size: 120px;
@@ -43,15 +101,19 @@
     text-transform: uppercase;
     color: var(--color-text-muted);
     margin-bottom: var(--spacing-lg);
-    font-weight: 600;
-    /* Slightly bolder for the border anchor */
-    letter-spacing: 1px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
     position: relative;
-    padding-left: 24px;
-    /* More space */
-    border-left: 2px solid var(--color-primary);
-    /* Primary left border */
+    padding-left: 28px;
+    border-left: 3px solid var(--color-primary);
     height: fit-content;
+    transition: all var(--transition-base);
+    z-index: 1;
+}
+
+.section-container:hover .section-title {
+    color: var(--color-text-secondary);
+    border-left-color: var(--color-primary-light);
 }
 
 /* Remove the old small red accent before pseudo-element */
@@ -61,28 +123,27 @@
 
 .section-content {
     max-width: 800px;
-    padding-left: 24px;
-    /* Align with text inside title (which has 24px padding) */
-    /* Or, if we want strict left alignment of text blocks: 
-       The title has `padding-left: 24px` and a border.
-       We might want the content to align with the *text* of the title, 
-       or align with the border. 
-       User said "Just beneath the headings".
-       Let's align flush with the title Text.
-    */
+    padding-left: 28px;
+    position: relative;
+    z-index: 1;
 }
 
 .section-text {
     font-size: var(--font-size-xl);
-    line-height: 1.4;
-    color: var(--color-text-main);
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text-secondary);
     font-weight: 400;
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    transition: color var(--transition-base);
+}
+
+.section-container:hover .section-text {
+    color: var(--color-text-main);
 }
 
 .section-subtext {
     font-size: var(--font-size-lg);
-    line-height: 1.5;
+    line-height: var(--line-height-base);
     color: var(--color-text-muted);
     margin-bottom: var(--spacing-md);
 }
@@ -91,13 +152,46 @@
 .micro-list {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--spacing-sm);
-    margin-top: var(--spacing-lg);
-    font-size: var(--font-size-sm);
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-xl);
+    font-size: var(--font-size-base);
     color: var(--color-text-muted);
 }
 
+.micro-list-item {
+    padding: 8px 16px;
+    background-color: var(--color-bg-alt);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: 6px;
+    transition: all var(--transition-base);
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+}
+
+.micro-list-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background-color: var(--color-primary);
+    transform: scaleY(0);
+    transition: transform var(--transition-base);
+}
+
+.micro-list-item:hover {
+    color: var(--color-text-main);
+    border-color: var(--color-border);
+    box-shadow: var(--shadow-sm);
+    transform: translateY(-2px);
+}
+
+.micro-list-item:hover::before {
+    transform: scaleY(1);
+}
+
 .micro-list-item:not(:last-child)::after {
-    content: "·";
-    margin-left: var(--spacing-sm);
+    display: none;
 }

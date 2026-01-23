@@ -1,6 +1,13 @@
+.layout-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
 .layout {
     max-width: var(--container-width);
     margin: 0 auto;
     padding: 0 var(--spacing-md);
     position: relative;
+    z-index: 1;
+    overflow: visible;
 }
