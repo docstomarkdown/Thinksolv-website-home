@@ -47,6 +47,7 @@
     font-weight: 400;
     line-height: var(--line-height-relaxed);
     max-width: 580px;
+    /* No padding - aligns with tagline for consistent left edge */
 }
 
 /* Removed users-count and description-subtle - all text now uses consistent .description styling */
@@ -109,6 +110,10 @@
 
     .tagline {
         font-size: var(--font-size-3xl);
+    }
+
+    .description {
+        padding-left: 0; /* Remove padding on mobile for centered text */
     }
 
     .hero-visual {

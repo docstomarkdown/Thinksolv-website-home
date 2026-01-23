@@ -1,9 +1,11 @@
 import React from 'react';
 import '../styles/Section.css';
+import WhyPattern from './WhyPattern';
 
 const WhyWeBuild = () => {
     return (
-        <section className="section-container">
+        <section className="section-container section-why">
+            <WhyPattern />
             <h3 className="section-title">Why we build</h3>
             <div className="section-content">
                 <p className="section-text section-text-lead">

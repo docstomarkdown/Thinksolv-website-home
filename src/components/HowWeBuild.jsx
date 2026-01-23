@@ -1,9 +1,11 @@
 import React from 'react';
 import '../styles/Section.css';
+import HowPattern from './HowPattern';
 
 const HowWeBuild = () => {
     return (
-        <section className="section-container">
+        <section className="section-container section-how">
+            <HowPattern />
             <h3 className="section-title">How we build</h3>
             <div className="section-content">
                 <p className="section-text section-text-lead">

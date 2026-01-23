@@ -5,14 +5,13 @@ const BrickAnimation = () => {
     const [layers, setLayers] = useState([]);
 
     useEffect(() => {
-        // Create 5 thoughtful layers representing building solutions step by step
+        // Create layered panels representing thoughtful assembly
         const createLayers = () => {
             const layerData = [
-                { id: 0, width: '100%', height: '20%', delay: 0, label: 'Foundation' },
-                { id: 1, width: '85%', height: '18%', delay: 0.6, label: 'Structure' },
-                { id: 2, width: '70%', height: '16%', delay: 1.2, label: 'Integration' },
-                { id: 3, width: '55%', height: '14%', delay: 1.8, label: 'Refinement' },
-                { id: 4, width: '40%', height: '12%', delay: 2.4, label: 'Solution' },
+                { id: 0, width: '85%', height: '25%', left: '7.5%', bottom: '0%', delay: 0, rotation: 0 },
+                { id: 1, width: '75%', height: '22%', left: '12.5%', bottom: '28%', delay: 0.08, rotation: -0.5 },
+                { id: 2, width: '80%', height: '24%', left: '10%', bottom: '52%', delay: 0.16, rotation: 0.3 },
+                { id: 3, width: '70%', height: '20%', left: '15%', bottom: '78%', delay: 0.24, rotation: -0.2 },
             ];
             setLayers(layerData);
         };
@@ -22,31 +21,26 @@ const BrickAnimation = () => {
 
     return (
         <div className="thoughtful-building">
-            <div className="building-container">
-                {layers.map((layer, index) => (
+            <div className="layered-container">
+                {layers.map((layer) => (
                     <div
                         key={layer.id}
-                        className="building-layer"
+                        className="layered-panel"
                         style={{
                             width: layer.width,
+                            height: layer.height,
+                            left: layer.left,
+                            bottom: layer.bottom,
                             animationDelay: `${layer.delay}s`,
-                            '--layer-index': index,
+                            '--layer-index': layer.id,
+                            '--rotation': `${layer.rotation}deg`,
                         }}
                     >
-                        <div className="layer-content">
-                            <div className="layer-shine"></div>
+                        <div className="panel-content">
+                            <div className="panel-glow"></div>
                         </div>
-                        <div className="layer-shadow"></div>
                     </div>
                 ))}
-                
-                {/* Decorative accent dots representing thoughtful details */}
-                <div className="accent-dots">
-                    <div className="dot dot-1"></div>
-                    <div className="dot dot-2"></div>
-                    <div className="dot dot-3"></div>
-                    <div className="dot dot-4"></div>
-                </div>
             </div>
         </div>
     );

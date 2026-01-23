@@ -1,0 +1,39 @@
+.file-pattern-container {
+    position: absolute;
+    right: -180px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 350px;
+    height: 350px;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden; /* Prevent icons from being cropped */
+    /* Ensure container doesn't clip content */
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.file-icon {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    opacity: 0;
+    animation: fileAppear 0.5s ease-out forwards;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+@keyframes fileAppear {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .file-pattern-container {
+        display: none; /* Hide icons on mobile to prevent overlap with text */
+    }
+}

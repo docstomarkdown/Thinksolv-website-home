@@ -5,60 +5,80 @@
     flex-direction: column;
     gap: var(--spacing-lg);
     position: relative;
-    overflow: visible;
+    overflow: hidden; /* Prevent icons from overlapping on mobile */
     transition: all var(--transition-base);
 }
 
-/* Decorative dotted pattern on the right side with smooth continuous animation */
-.section-container::after {
-    content: '';
-    position: absolute;
-    right: -180px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 350px;
-    height: 350px;
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.2;
-    
-    /* Multi-layered dotted pattern */
-    background-image: 
-        radial-gradient(circle, var(--color-primary) 2.5px, transparent 2.5px),
-        radial-gradient(circle, var(--color-primary) 2px, transparent 2px),
-        radial-gradient(circle, var(--color-primary) 1.5px, transparent 1.5px);
-    background-size: 30px 30px, 38px 38px, 46px 46px;
-    background-position: 0 0, 15px 15px, 23px 23px;
-    background-repeat: repeat;
-    
-    /* Smooth continuous animation - gentle drift */
-    animation: smoothDrift 20s linear infinite;
-    
-    /* Add a subtle glow */
-    filter: blur(0.5px);
+/* Section-specific decorative SVG patterns on the right side */
+
+/* WHAT: File pattern now handled by FilePattern component - no CSS pattern needed */
+.section-what::after {
+    display: none;
 }
 
-/* Smooth drifting animation for dotted pattern */
-@keyframes smoothDrift {
+/* HOW: Pattern now handled by HowPattern component - no CSS pattern needed */
+.section-how::after {
+    display: none;
+}
+
+/* WHY: Pattern now handled by WhyPattern component - no CSS pattern needed */
+.section-why::after {
+    display: none;
+}
+
+/* Grid drift animation for WHAT section */
+@keyframes gridDrift {
     0% {
-        transform: translateY(-50%) translateX(0);
-        opacity: 0.2;
-    }
-    25% {
-        transform: translateY(-50%) translateX(-5px) translateY(-3px);
-        opacity: 0.22;
+        transform: translateY(-50%) translateX(0) translateY(0);
+        opacity: 0.15;
     }
     50% {
-        transform: translateY(-50%) translateX(0) translateY(-5px);
-        opacity: 0.2;
-    }
-    75% {
-        transform: translateY(-50%) translateX(5px) translateY(-3px);
-        opacity: 0.22;
+        transform: translateY(-50%) translateX(-8px) translateY(-5px);
+        opacity: 0.18;
     }
     100% {
-        transform: translateY(-50%) translateX(0);
-        opacity: 0.2;
+        transform: translateY(-50%) translateX(0) translateY(0);
+        opacity: 0.15;
+    }
+}
+
+/* Layer drift animation for HOW section */
+@keyframes layerDrift {
+    0% {
+        transform: translateY(-50%) translateY(0);
+        opacity: 0.15;
+    }
+    50% {
+        transform: translateY(-50%) translateY(-6px);
+        opacity: 0.18;
+    }
+    100% {
+        transform: translateY(-50%) translateY(0);
+        opacity: 0.15;
+    }
+}
+
+/* Flow drift animation for WHY section */
+@keyframes flowDrift {
+    0% {
+        transform: translateY(-50%) rotate(0deg);
+        opacity: 0.15;
+    }
+    25% {
+        transform: translateY(-50%) rotate(1deg) translateX(-3px);
+        opacity: 0.17;
+    }
+    50% {
+        transform: translateY(-50%) rotate(0deg) translateY(-4px);
+        opacity: 0.15;
+    }
+    75% {
+        transform: translateY(-50%) rotate(-1deg) translateX(3px);
+        opacity: 0.17;
+    }
+    100% {
+        transform: translateY(-50%) rotate(0deg);
+        opacity: 0.15;
     }
 }
 
@@ -77,22 +97,35 @@
     .section-container {
         grid-template-columns: 1fr;
         padding: var(--spacing-xl) 0;
+        overflow: hidden; /* Ensure no overflow on mobile */
     }
 
     .section-container::after {
-        right: -80px;
-        width: 250px;
-        height: 250px;
-        opacity: 0.12;
+        display: none; /* Hide any remaining ::after patterns on mobile */
+    }
+    
+    .section-what::after {
+        display: none;
+    }
+    
+    .section-how::after {
+        display: none;
+    }
+    
+    .section-why::after {
+        display: none;
     }
 
-    /* Removed ::before pattern for mobile */
+    .section-content {
+        padding-left: 0; /* Remove left padding on mobile for better space usage */
+    }
+
+    .section-title::before {
+        left: -12px; /* Adjust border position on mobile */
+    }
 
     .section-number {
-        font-size: 120px;
-        right: 0;
-        left: auto;
-        top: 20px;
+        display: none; /* Hide section numbers on mobile */
     }
 }
 
@@ -104,29 +137,40 @@
     font-weight: 500;
     letter-spacing: -0.01em;
     position: relative;
-    padding-left: 32px;
-    border-left: 3px solid var(--color-primary);
+    padding-left: 0; /* Align text with hero section */
     height: fit-content;
     transition: all var(--transition-base);
-    z-index: 1;
+    z-index: 2; /* Ensure title is above pattern icons */
     line-height: 1.25;
+}
+
+/* Border positioned away from text using ::before */
+.section-title::before {
+    content: '';
+    position: absolute;
+    left: -20px; /* Position border away from text */
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background-color: var(--color-primary);
+    transition: background-color var(--transition-base);
 }
 
 .section-container:hover .section-title {
     color: var(--color-text-secondary);
-    border-left-color: var(--color-primary-light);
 }
 
-/* Remove the old small red accent before pseudo-element */
-.section-title::before {
-    display: none;
+.section-container:hover .section-title::before {
+    background-color: var(--color-primary-light);
 }
+
+/* Border is now handled by ::before pseudo-element above */
 
 .section-content {
     max-width: 800px;
-    padding-left: 28px;
+    padding-left: 0; /* Align with hero section description */
     position: relative;
-    z-index: 1;
+    z-index: 2; /* Ensure content is above pattern icons */
 }
 
 .section-text {

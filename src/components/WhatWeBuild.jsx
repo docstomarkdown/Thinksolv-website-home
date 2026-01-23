@@ -1,9 +1,11 @@
 import React from 'react';
 import '../styles/Section.css';
+import FilePattern from './FilePattern';
 
 const WhatWeBuild = () => {
     return (
-        <section className="section-container">
+        <section className="section-container section-what">
+            <FilePattern />
             <h3 className="section-title">What we work on</h3>
             <div className="section-content">
                 <p className="section-text section-text-lead">
