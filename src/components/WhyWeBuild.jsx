@@ -12,6 +12,9 @@ const WhyWeBuild = () => {
                 <p className="section-text">
                     Our goal is to remove repetitive effort so individuals and teams can focus on higher-value work.
                 </p>
+                <p className="section-text">
+                    When software disappears into the background, that's when it's working best.
+                </p>
             </div>
         </section>
     );

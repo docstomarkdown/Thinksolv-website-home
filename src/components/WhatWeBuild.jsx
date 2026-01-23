@@ -9,6 +9,9 @@ const WhatWeBuild = () => {
                 <p className="section-text">
                     We build software for document workflows, file management, and data-to-cloud automation, primarily within the Google Workspace ecosystem.
                 </p>
+                <p className="section-text">
+                    Every tool we create starts with a simple question: what if this task didn't need to exist?
+                </p>
                 <div className="micro-list">
                     <span className="micro-list-item">Document processing</span>
                     <span className="micro-list-item">Drive automation</span>

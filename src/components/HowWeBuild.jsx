@@ -12,6 +12,9 @@ const HowWeBuild = () => {
                 <p className="section-text">
                     This helps us design systems that are simple to use, reliable at scale, and easy to maintain.
                 </p>
+                <p className="section-text">
+                    Complexity is easy. Simplicity requires thought. We choose the harder path.
+                </p>
             </div>
         </section>
     );
