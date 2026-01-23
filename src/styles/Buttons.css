@@ -1,0 +1,105 @@
+/* Site-wide Button Styles */
+
+/* Primary Button - For main actions (Submit, CTA, etc.) */
+.btn-primary {
+    padding: 12px 32px;
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    font-family: var(--font-family);
+    color: var(--color-bg-alt);
+    background-color: var(--color-text-main);
+    border: 1.5px solid var(--color-text-main);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    white-space: nowrap;
+    text-decoration: none;
+    letter-spacing: -0.01em;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background-color: var(--color-text-secondary);
+    border-color: var(--color-text-secondary);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-primary:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Secondary Button - For navigation, contact, etc. */
+.btn-secondary {
+    padding: 10px 20px;
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    font-family: var(--font-family);
+    color: var(--color-text-secondary);
+    background-color: transparent;
+    border: 1.5px solid var(--color-border);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    white-space: nowrap;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+}
+
+.btn-secondary:hover {
+    color: var(--color-text-main);
+    border-color: var(--color-text-main);
+    background-color: rgba(10, 10, 10, 0.02);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* Button with spinner/loading state */
+.btn-primary .spinner,
+.btn-secondary .spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid currentColor;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+}
+
+.btn-primary .spinner {
+    border-color: rgba(255, 255, 255, 0.3);
+    border-top-color: var(--color-bg-alt);
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        justify-content: center;
+    }
+}
