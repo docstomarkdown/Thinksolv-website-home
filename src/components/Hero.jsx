@@ -7,14 +7,22 @@ const Hero = () => {
     <section className="hero-section">
       <div className="hero-content">
         <h1 className="company-name">Thinksolv Technologies</h1>
-        <h2 className="tagline">Building solutions, thoughtfully.</h2>
+        <h2 className="tagline">Building software, thoughtfully.</h2>
         
         <p className="description">
-          We design dependable software that simplifies everyday work.
+          We build software that supports everyday work.
         </p>
         
-        <p className="users-count">
-          Used by 150,000+ users across productivity products.
+        <p className="description">
+          Our products integrate naturally with the platforms people already use—designed for clarity, minimal interaction, and little to no learning curve.
+        </p>
+        
+        <p className="description">
+          Used by over 150,000 users globally, our products are reliable and built to last.
+        </p>
+        
+        <p className="description">
+          We focus on long-term utility over short-term novelty.
         </p>
       </div>
       

@@ -6,14 +6,14 @@ const HowWeBuild = () => {
         <section className="section-container">
             <h3 className="section-title">How we build</h3>
             <div className="section-content">
-                <p className="section-text">
-                    We start from first principles—understanding the real problem before choosing tools or architectures.
+                <p className="section-text section-text-lead">
+                    First principles over defaults.
                 </p>
                 <p className="section-text">
-                    This helps us design systems that are simple to use, reliable at scale, and easy to maintain.
+                    We start by understanding the real problem before choosing tools, architectures, or abstractions. This approach allows us to build systems that are simple to use, reliable at scale, and easy to evolve.
                 </p>
                 <p className="section-text">
-                    Complexity is easy. Simplicity requires thought. We choose the harder path.
+                    We avoid unnecessary complexity because it increases mental overhead for users. Simplicity requires intent, and we choose it deliberately.
                 </p>
             </div>
         </section>

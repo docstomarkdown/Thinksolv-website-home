@@ -10,9 +10,9 @@ function App() {
   return (
     <Layout>
       <Hero />
+      <WhyWeBuild />
       <WhatWeBuild />
       <HowWeBuild />
-      <WhyWeBuild />
       <Footer />
     </Layout>
   )

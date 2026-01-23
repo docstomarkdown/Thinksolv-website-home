@@ -6,18 +6,24 @@ const WhatWeBuild = () => {
         <section className="section-container">
             <h3 className="section-title">What we work on</h3>
             <div className="section-content">
-                <p className="section-text">
-                    We build software for document workflows, file management, and data-to-cloud automation, primarily within the Google Workspace ecosystem.
+                <p className="section-text section-text-lead">
+                    Tools for document-centric work
                 </p>
                 <p className="section-text">
-                    Every tool we create starts with a simple question: what if this task didn't need to exist?
+                    We build focused software for document workflows, file management, and spreadsheet-driven automation within the Google ecosystem, spanning Google Workspace and Chrome-based platforms.
                 </p>
-                <div className="micro-list">
-                    <span className="micro-list-item">Document processing</span>
-                    <span className="micro-list-item">Drive automation</span>
-                    <span className="micro-list-item">Spreadsheet-driven workflows</span>
-                    <span className="micro-list-item">Applied AI</span>
-                </div>
+                <p className="section-text">
+                    Our products are designed for people who work daily in Docs, Sheets, and Drive and expect speed, predictability, and deep integration.
+                </p>
+                <p className="section-text">
+                    Every product begins with a simple question:
+                </p>
+                <p className="section-text">
+                    What if this task didn't need to exist at all?
+                </p>
+                <p className="section-text">
+                    That question guides us to design at the system level—eliminating repetitive work before it reaches the user.
+                </p>
             </div>
         </section>
     );

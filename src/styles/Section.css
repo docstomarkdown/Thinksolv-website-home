@@ -1,5 +1,5 @@
 .section-container {
-    padding: var(--spacing-xxxl) 0;
+    padding: var(--spacing-xl) 0;
     background-color: transparent;
     display: flex;
     flex-direction: column;
@@ -97,18 +97,19 @@
 }
 
 .section-title {
-    font-size: var(--font-size-sm);
-    text-transform: uppercase;
-    color: var(--color-text-muted);
+    font-size: var(--font-size-2xl);
+    text-transform: none;
+    color: var(--color-text-secondary);
     margin-bottom: var(--spacing-lg);
-    font-weight: 700;
-    letter-spacing: 1.5px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
     position: relative;
-    padding-left: 28px;
+    padding-left: 32px;
     border-left: 3px solid var(--color-primary);
     height: fit-content;
     transition: all var(--transition-base);
     z-index: 1;
+    line-height: 1.25;
 }
 
 .section-container:hover .section-title {
@@ -129,12 +130,17 @@
 }
 
 .section-text {
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-lg);
     line-height: var(--line-height-relaxed);
     color: var(--color-text-secondary);
     font-weight: 400;
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
     transition: color var(--transition-base);
+}
+
+.section-text-lead {
+    font-weight: 500;
+    margin-bottom: var(--spacing-lg);
 }
 
 .section-container:hover .section-text {
@@ -147,6 +153,8 @@
     color: var(--color-text-muted);
     margin-bottom: var(--spacing-md);
 }
+
+/* Removed unused emphasis and list styles - using consistent section-text throughout */
 
 /* Micro-list styles */
 .micro-list {
