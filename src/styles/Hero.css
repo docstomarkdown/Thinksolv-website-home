@@ -1,0 +1,78 @@
+.hero-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-xxl) 0;
+    min-height: 60vh;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.company-name {
+    font-size: var(--font-size-sm);
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: var(--spacing-md);
+    font-weight: 600;
+}
+
+.tagline {
+    font-size: var(--font-size-3xl);
+    color: var(--color-text-main);
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+    letter-spacing: -1px;
+    line-height: 1.1;
+}
+
+.description {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-main);
+    margin-bottom: var(--spacing-lg);
+    font-weight: 400;
+}
+
+.users-count {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-lg);
+}
+
+.hero-links {
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+}
+
+.hero-links a {
+    color: var(--color-text-main);
+    transition: color 0.2s;
+}
+
+.hero-links a:hover {
+    color: var(--color-primary);
+}
+
+.separator {
+    margin: 0 var(--spacing-sm);
+    color: var(--color-text-muted);
+}
+
+.hero-visual {
+    padding-left: var(--spacing-xl);
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: var(--spacing-xl) 0;
+    }
+
+    .hero-visual {
+        padding-left: 0;
+        margin-bottom: var(--spacing-xl);
+    }
+}

@@ -1,0 +1,96 @@
+:root {
+    /* Colors - Premium Minimal Palette */
+    --color-primary: #E91C24;
+    /* Brand Red */
+    --color-bg: #FAFAFA;
+    /* Very light off-white, warmer than pure white */
+    --color-bg-alt: #FFFFFF;
+    /* Pure white for cards/contrast */
+    --color-text-main: #1A1A1A;
+    /* Softer than #000 */
+    --color-text-muted: #555555;
+    /* Refined gray */
+    --color-border: #E5E5E5;
+
+    /* Typography */
+    --font-family: 'Google Sans Flex', system-ui, -apple-system, sans-serif;
+
+    /* Type Scale */
+    --font-size-xs: 12px;
+    --font-size-sm: 14px;
+    --font-size-base: 16px;
+    --font-size-lg: 20px;
+    --font-size-xl: 24px;
+    --font-size-2xl: 32px;
+    --font-size-3xl: 48px;
+    --font-size-4xl: 64px;
+
+    --line-height-base: 1.6;
+    /* Increased for better readability */
+    --line-height-tight: 1.2;
+
+    /* Spacing */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 32px;
+    --spacing-xl: 64px;
+    --spacing-xxl: 120px;
+
+    /* Layout */
+    --container-width: 1200px;
+    --header-height: 80px;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-family);
+    color: var(--color-text-main);
+    line-height: var(--line-height-base);
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.01em;
+    /* Tighten slightly for modern feel */
+    /* Premium Background - Elegant Atmosphere (High Visibility) */
+    background-color: #FAFAFA;
+    background-image:
+        /* Noise Texture - Boosted Opacity (15%) for visibility */
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E"),
+
+        /* Top-center highlight - Stronger */
+        radial-gradient(circle at 50% 0%, #FFFFFF 0%, transparent 70%),
+
+        /* Deep Teal/Cyan Glow - Stronger (18%) */
+        radial-gradient(circle at 85% 10%, rgba(0, 150, 136, 0.18) 0%, transparent 60%),
+
+        /* Deep Slate/Indigo Glow - Stronger (18%) */
+        radial-gradient(circle at 0% 90%, rgba(44, 62, 80, 0.18) 0%, transparent 60%),
+
+        /* Base subtle gradient */
+        linear-gradient(180deg, #FAFAFA 0%, #E8EAED 100%);
+
+    background-size: 200px 200px, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    font-weight: 500;
+    line-height: var(--line-height-tight);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}

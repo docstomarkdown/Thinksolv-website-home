@@ -1,0 +1,64 @@
+.masonry-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: 40px;
+    gap: 8px;
+    width: 360px;
+    height: 400px;
+    /* Constrain height */
+    overflow: hidden;
+    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    /* Fade out at bottom */
+    -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+}
+
+.brick {
+    background-color: var(--color-primary);
+    /* Use brand color logic in animation */
+    /* We want very subtle blocks. */
+    background-color: #EAEAEA;
+    /* Slightly darker than bg to stand out but remain subtle */
+    border-radius: 2px;
+    width: 100%;
+    height: 100%;
+}
+
+/* Add varied colors/shades via nth-child or similar if simple, 
+   but let's do it via classes or just varied opacity on a base color */
+
+.brick {
+    background-color: #DDDDDD;
+    /* Refined neutral */
+}
+
+.brick-accent {
+    background-color: var(--color-primary);
+    /* Ensure opacity is handled correctly by animation, 
+       but we might want accents to be slightly more visible */
+}
+
+.span-1 {
+    grid-row: span 1;
+}
+
+.span-2 {
+    grid-row: span 2;
+}
+
+/* Animation */
+.brick {
+    animation: masonryFadeIn 2s ease-out forwards;
+}
+
+@keyframes masonryFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: var(--target-opacity, 0.3);
+        /* Use css var for random opacity */
+        transform: translateY(0);
+    }
+}
