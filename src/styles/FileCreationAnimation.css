@@ -34,7 +34,7 @@
 }
 
 .input-icon-item svg {
-    color: #C41E3A; /* Match brand color */
+    color: var(--color-primary); /* Match brand color */
 }
 
 /* Animation cycle for inputs:
@@ -156,7 +156,7 @@
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(196, 30, 58, 0.15) 0%, transparent 70%);
+    background: radial-gradient(circle, var(--color-primary-15) 0%, transparent 70%);
     opacity: 0;
     animation: processingPulse 6s ease-in-out infinite;
     animation-delay: 3s; /* Start at 50% of cycle */
@@ -213,7 +213,7 @@
 .output-icon-item img {
     width: 100%;
     height: 100%;
-    filter: drop-shadow(0 4px 12px rgba(196, 30, 58, 0.25));
+    filter: drop-shadow(0 4px 12px var(--color-primary-25));
 }
 
 .output-doc {

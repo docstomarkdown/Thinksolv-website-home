@@ -35,6 +35,29 @@
     --color-accent-teal: #14B8A6;
     --color-accent-amber: #F59E0B;
 
+    /* Primary color with opacity variations for gradients and effects */
+    /* These use RGB values for rgba() - currently set to match --color-primary (#C41E3A = rgb(196, 30, 58)) */
+    --color-primary-rgb: 196, 30, 58;
+    --color-primary-01: rgba(var(--color-primary-rgb), 0.01);
+    --color-primary-02: rgba(var(--color-primary-rgb), 0.02);
+    --color-primary-03: rgba(var(--color-primary-rgb), 0.03);
+    --color-primary-04: rgba(var(--color-primary-rgb), 0.04);
+    --color-primary-05: rgba(var(--color-primary-rgb), 0.05);
+    --color-primary-06: rgba(var(--color-primary-rgb), 0.06);
+    --color-primary-08: rgba(var(--color-primary-rgb), 0.08);
+    --color-primary-10: rgba(var(--color-primary-rgb), 0.1);
+    --color-primary-12: rgba(var(--color-primary-rgb), 0.12);
+    --color-primary-15: rgba(var(--color-primary-rgb), 0.15);
+    --color-primary-25: rgba(var(--color-primary-rgb), 0.25);
+    
+    /* Accent colors with opacity for gradients */
+    --color-accent-teal-rgb: 20, 184, 166;
+    --color-accent-teal-01: rgba(var(--color-accent-teal-rgb), 0.01);
+    --color-accent-teal-03: rgba(var(--color-accent-teal-rgb), 0.03);
+    
+    --color-accent-blue-rgb: 59, 130, 246;
+    --color-accent-blue-02: rgba(var(--color-accent-blue-rgb), 0.02);
+
     /* Typography */
     --font-family: 'Google Sans Flex', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
 
@@ -92,23 +115,23 @@ body {
     background-color: var(--color-bg);
     background-image:
         /* Big squares pattern - subtle and aesthetic */
-        linear-gradient(rgba(196, 30, 58, 0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(196, 30, 58, 0.04) 1px, transparent 1px),
+        linear-gradient(var(--color-primary-04) 1px, transparent 1px),
+        linear-gradient(90deg, var(--color-primary-04) 1px, transparent 1px),
         
         /* Subtle dot pattern overlay */
-        radial-gradient(circle at 1px 1px, rgba(196, 30, 58, 0.03) 1px, transparent 0),
+        radial-gradient(circle at 1px 1px, var(--color-primary-03) 1px, transparent 0),
         
         /* Grid pattern - very subtle */
-        linear-gradient(rgba(196, 30, 58, 0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(196, 30, 58, 0.02) 1px, transparent 1px),
+        linear-gradient(var(--color-primary-02) 1px, transparent 1px),
+        linear-gradient(90deg, var(--color-primary-02) 1px, transparent 1px),
         
         /* Top highlight with warm tone */
         radial-gradient(circle at 50% 0%, rgba(255, 249, 245, 0.8) 0%, transparent 60%),
         
         /* Warm accent glows */
-        radial-gradient(circle at 15% 25%, rgba(196, 30, 58, 0.04) 0%, transparent 50%),
-        radial-gradient(circle at 85% 75%, rgba(20, 184, 166, 0.03) 0%, transparent 50%),
-        radial-gradient(circle at 50% 100%, rgba(59, 130, 246, 0.02) 0%, transparent 50%),
+        radial-gradient(circle at 15% 25%, var(--color-primary-04) 0%, transparent 50%),
+        radial-gradient(circle at 85% 75%, var(--color-accent-teal-03) 0%, transparent 50%),
+        radial-gradient(circle at 50% 100%, var(--color-accent-blue-02) 0%, transparent 50%),
         
         /* Base warm gradient */
         linear-gradient(180deg, #FEFCFB 0%, #FFF9F5 50%, #FEFCFB 100%);
@@ -139,15 +162,15 @@ body::before {
             45deg,
             transparent,
             transparent 2px,
-            rgba(196, 30, 58, 0.01) 2px,
-            rgba(196, 30, 58, 0.01) 4px
+            var(--color-primary-01) 2px,
+            var(--color-primary-01) 4px
         ),
         repeating-linear-gradient(
             -45deg,
             transparent,
             transparent 2px,
-            rgba(20, 184, 166, 0.01) 2px,
-            rgba(20, 184, 166, 0.01) 4px
+            var(--color-accent-teal-01) 2px,
+            var(--color-accent-teal-01) 4px
         );
     pointer-events: none;
     z-index: 0;

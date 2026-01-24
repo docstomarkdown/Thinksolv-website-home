@@ -20,9 +20,9 @@
     font-weight: 500;
     display: inline-block;
     padding: 5px 12px;
-    background-color: rgba(196, 30, 58, 0.05);
+    background-color: var(--color-primary-05);
     border-radius: 5px;
-    border-left: 2px solid rgba(196, 30, 58, 0.15);
+    border-left: 2px solid var(--color-primary-15);
     transition: all var(--transition-base);
 }
 
@@ -83,7 +83,7 @@
     right: -20px;
     width: 200px;
     height: 200px;
-    background: radial-gradient(circle, rgba(196, 30, 58, 0.08) 0%, transparent 70%);
+    background: radial-gradient(circle, var(--color-primary-08) 0%, transparent 70%);
     border-radius: 50%;
     z-index: -1;
     animation: pulse 4s ease-in-out infinite;
