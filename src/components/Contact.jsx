@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/Contact.css';
 import '../styles/Buttons.css';
+import '../styles/Input.css';
+import Input from './Input';
+import Textarea from './Textarea';
 
 // Import document icons
 import DocIcon from '../assets/file-doc.svg';
@@ -180,7 +183,7 @@ const Contact = () => {
               <div className="form-group">
                 <label htmlFor="name" className="form-label">Full name</label>
                 <div className="input-wrapper">
-                  <input
+                  <Input
                     type="text"
                     id="name"
                     name="name"
@@ -188,7 +191,6 @@ const Contact = () => {
                     onChange={handleChange}
                     placeholder="Full name"
                     required
-                    className="form-input"
                   />
                 </div>
               </div>
@@ -196,7 +198,7 @@ const Contact = () => {
               <div className="form-group">
                 <label htmlFor="email" className="form-label">Email Address</label>
                 <div className="input-wrapper">
-                  <input
+                  <Input
                     type="email"
                     id="email"
                     name="email"
@@ -204,7 +206,6 @@ const Contact = () => {
                     onChange={handleChange}
                     placeholder="Email Address"
                     required
-                    className="form-input"
                   />
                 </div>
               </div>
@@ -213,7 +214,7 @@ const Contact = () => {
             <div className="form-group">
               <label htmlFor="subject" className="form-label">Subject</label>
               <div className="input-wrapper">
-                <input
+                <Input
                   type="text"
                   id="subject"
                   name="subject"
@@ -223,7 +224,6 @@ const Contact = () => {
                   required
                   minLength={3}
                   maxLength={150}
-                  className="form-input"
                 />
               </div>
             </div>
@@ -231,7 +231,7 @@ const Contact = () => {
             <div className="form-group">
               <label htmlFor="message" className="form-label">Message</label>
               <div className="input-wrapper">
-                <textarea
+                <Textarea
                   id="message"
                   name="message"
                   value={formData.message}
@@ -239,7 +239,6 @@ const Contact = () => {
                   placeholder="Tell us more about your needs"
                   rows={6}
                   required
-                  className="form-textarea"
                 />
               </div>
             </div>

@@ -89,39 +89,8 @@
     position: relative;
 }
 
-.form-input,
-.form-textarea {
-    width: 100%;
-    padding: 14px 16px;
-    font-size: var(--font-size-base);
-    font-family: var(--font-family);
-    color: var(--color-text-main);
-    background-color: var(--color-bg);
-    border: 1.5px solid var(--color-border);
-    border-radius: 8px;
-    transition: all var(--transition-base);
-    line-height: var(--line-height-base);
-    box-sizing: border-box;
-}
-
-.form-input:focus,
-.form-textarea:focus {
-    outline: none;
-    border-color: var(--color-primary);
-    background-color: var(--color-bg-alt);
-    box-shadow: 0 0 0 3px rgba(196, 30, 58, 0.1);
-}
-
-.form-input::placeholder,
-.form-textarea::placeholder {
-    color: var(--color-text-subtle);
-}
-
-.form-textarea {
-    resize: vertical;
-    min-height: 120px;
-    font-family: var(--font-family);
-}
+/* Input styles moved to Input.css for reusability */
+/* Import Input.css in Contact.jsx or include it globally */
 
 /* Form Footer */
 .form-footer {
