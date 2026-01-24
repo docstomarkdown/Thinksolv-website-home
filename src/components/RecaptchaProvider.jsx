@@ -2,13 +2,12 @@ import React from 'react';
 import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 
 const RecaptchaProvider = ({ children }) => {
+  // Always get the site key - in Vercel, this comes from environment variables
   const siteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY || '';
   
-  if (!siteKey) {
-    console.warn('VITE_RECAPTCHA_SITE_KEY is not set. reCAPTCHA will not work.');
-    return <>{children}</>;
-  }
-
+  // Always wrap with provider to ensure context is available
+  // Even if siteKey is empty, the provider will be available (just won't work)
+  // This prevents "Context has not yet been implemented" errors
   return (
     <GoogleReCaptchaProvider
       reCaptchaKey={siteKey}

@@ -97,7 +97,14 @@ const Contact = () => {
 
     // Check if reCAPTCHA is available
     if (!executeRecaptcha) {
+      const siteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
+      if (!siteKey) {
+        setErrorMessage('reCAPTCHA is not configured. Please contact support.');
+        setIsSubmitting(false);
+        return;
+      }
       setErrorMessage('reCAPTCHA is not ready. Please refresh the page and try again.');
+      setIsSubmitting(false);
       return;
     }
 
