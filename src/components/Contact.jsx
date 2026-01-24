@@ -269,7 +269,7 @@ const Contact = () => {
               <div className="form-message">
                 {thankYouMessage && (
                   <p className="success-message">
-                    Thanks for reaching out! Our team is now on it!
+                    Thanks for reaching out! You will get a response within 12 hours.
                   </p>
                 )}
                 {errorMessage && (
