@@ -30,34 +30,93 @@ const Contact = () => {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const querySubject = params.get('subject');
-    const utmSource = params.get('utm_source');
+    const utmSourceRaw = params.get('utm_source');
 
     if (querySubject) {
       setFormData(prev => ({ ...prev, subject: querySubject }));
-    } else if (utmSource) {
+    } else if (utmSourceRaw) {
+      // Normalize utm_source: trim whitespace and convert to lowercase for consistent matching
+      const utmSource = utmSourceRaw.trim().toLowerCase();
+      
       // 1. Check mapping from environment variable (JSON encoded)
       let envMapping = {};
       try {
         const envMapStr = import.meta.env.VITE_UTM_SOURCE_MAP;
         if (envMapStr) {
           envMapping = JSON.parse(envMapStr);
+          // Normalize env mapping keys to lowercase for case-insensitive lookup
+          const normalizedEnvMapping = {};
+          for (const [key, value] of Object.entries(envMapping)) {
+            normalizedEnvMapping[key.toLowerCase().trim()] = value;
+          }
+          envMapping = normalizedEnvMapping;
         }
       } catch (e) {
         console.error('Failed to parse VITE_UTM_SOURCE_MAP', e);
       }
 
-      // 2. Hardcoded UTM source mapping
+      // 2. Hardcoded UTM source mapping (keys are lowercase for case-insensitive matching)
       const utmSourceMapping = {
         "extension_a": "Support for Extension A",
         "extension_b": "Support for Extension B",
         "ext-chatgpt-to-word": "Support for ChatGPT to Word Extension",
-        "extension-ai": "Extension AI",
+        "ext-chatgpt-to-google-docs": "Support for ChatGPT to Google Docs Extension",
+        "ext-gemini-to-word-pdf": "Support for Gemini to Word PDF Extension",
+        "ext-convert-chatgpt-to-google-doc-acq": "Support for Convert ChatGPT to Google Doc Extension",
       };
 
-      // Format dynamic utm_source values
+      // Format dynamic utm_source values to follow "Support for..." pattern
       const formatUtmSource = (source) => {
-        const text = source.replace(/[-_]/g, " ");
-        return text.replace(/\b\w/g, (char) => char.toUpperCase());
+        // Remove common prefixes (case-insensitive)
+        let text = source.toLowerCase();
+        
+        // Remove "ext" or "ext-" prefix
+        if (text.startsWith('ext-') || text.startsWith('ext_')) {
+          text = text.replace(/^ext[-_]/, '');
+        } else if (text.startsWith('ext')) {
+          text = text.replace(/^ext/, '');
+        }
+        
+        // Remove "extension" or "extension-" prefix
+        if (text.startsWith('extension-') || text.startsWith('extension_')) {
+          text = text.replace(/^extension[-_]/, '');
+        } else if (text.startsWith('extension')) {
+          text = text.replace(/^extension/, '');
+        }
+        
+        // Replace remaining hyphens/underscores with spaces and trim
+        text = text.replace(/[-_]/g, ' ').trim();
+        
+        // Handle "to word pdf" or "to word-pdf" patterns
+        text = text.replace(/\bto\s+word\s+pdf\b/gi, 'to Word PDF');
+        text = text.replace(/\bto\s+word\b/gi, 'to Word');
+        text = text.replace(/\bto\s+pdf\b/gi, 'to PDF');
+        text = text.replace(/\bto\s+google\s*docs?\b/gi, 'to Google Docs');
+        text = text.replace(/\bto\s+docx?\b/gi, 'to Word');
+        
+        // Split into words and capitalize properly
+        const words = text.split(/\s+/).filter(w => w.length > 0);
+        const commonWords = ['to', 'for', 'and', 'or', 'the', 'a', 'an', 'in', 'on', 'at'];
+        
+        const formatted = words.map((word, index) => {
+          const lowerWord = word.toLowerCase();
+          
+          // Keep special formats as-is (Word, PDF, Google Docs)
+          if (word === 'Word' || word === 'PDF' || word === 'Google' || word === 'Docs') {
+            return word;
+          }
+          
+          // Keep "to" lowercase unless it's the first word
+          if (lowerWord === 'to' && index > 0) {
+            return 'to';
+          }
+          
+          // Capitalize first letter
+          return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+        }).join(' ');
+
+        // Return with "Support for" prefix
+        return `Support for ${formatted} Extension`;
       };
 
       // 3. Resolve Subject: Env Mapping -> Hardcoded Mapping -> Dynamic Formatter
