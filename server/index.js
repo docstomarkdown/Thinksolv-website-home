@@ -60,8 +60,15 @@ app.post('/api/send-email', async (req, res) => {
       return res.status(400).json({ error: 'Missing required fields' });
     }
 
-    // 2. Validate CAPTCHA (Server-Side) - Optional for now
-    if (process.env.RECAPTCHA_SECRET_KEY && captcha) {
+    // 2. Validate CAPTCHA (Server-Side)
+    if (!captcha) {
+      console.error('❌ CAPTCHA token missing');
+      return res.status(400).json({ error: 'CAPTCHA token missing' });
+    }
+
+    if (!process.env.RECAPTCHA_SECRET_KEY) {
+      console.warn('⚠️ RECAPTCHA_SECRET_KEY is not set. Skipping CAPTCHA validation.');
+    } else {
       const verifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${captcha}`;
 
       try {
@@ -71,14 +78,15 @@ app.post('/api/send-email', async (req, res) => {
         console.log('reCAPTCHA v3 response:', recaptchaJson);
 
         if (!recaptchaJson.success || recaptchaJson.score < 0.5) {
-          console.error('reCAPTCHA validation failed:', recaptchaJson);
+          console.error('❌ reCAPTCHA validation failed:', recaptchaJson);
           const errorCode = recaptchaJson['error-codes'] ? recaptchaJson['error-codes'][0] : 'low-score';
           return res.status(400).json({
             error: `CAPTCHA verification failed: ${errorCode}`,
           });
         }
+        console.log('✅ reCAPTCHA verified successfully. Score:', recaptchaJson.score);
       } catch (error) {
-        console.error('reCAPTCHA verification error:', error);
+        console.error('❌ reCAPTCHA verification error:', error);
         return res.status(500).json({ error: 'CAPTCHA verification failed' });
       }
     }

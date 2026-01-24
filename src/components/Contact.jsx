@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import '../styles/Contact.css';
 import '../styles/Buttons.css';
 import '../styles/Input.css';
@@ -14,6 +15,7 @@ import XlsIcon from '../assets/file-xls.svg';
 import TxtIcon from '../assets/file-txt.svg';
 
 const Contact = () => {
+  const { executeRecaptcha } = useGoogleReCaptcha();
   const [thankYouMessage, setThankYouMessage] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -93,13 +95,26 @@ const Contact = () => {
       return;
     }
 
+    // Check if reCAPTCHA is available
+    if (!executeRecaptcha) {
+      setErrorMessage('reCAPTCHA is not ready. Please refresh the page and try again.');
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
+      // Execute reCAPTCHA v3
+      const token = await executeRecaptcha('contact_form_submit');
+
+      if (!token) {
+        setErrorMessage('Failed to verify CAPTCHA. Please try again.');
+        setIsSubmitting(false);
+        return;
+      }
+
       const apiEndpoint = import.meta.env.VITE_API_ENDPOINT || '/api/send-email';
       
-      // Note: reCAPTCHA integration can be added here if needed
-      // For now, sending without it (backend will handle if RECAPTCHA_SECRET_KEY is set)
       const response = await fetch(apiEndpoint, {
         method: 'POST',
         headers: {
@@ -107,7 +122,7 @@ const Contact = () => {
         },
         body: JSON.stringify({
           ...formData,
-          // captcha: token, // Would be added when reCAPTCHA is integrated
+          captcha: token,
         }),
       });
 
