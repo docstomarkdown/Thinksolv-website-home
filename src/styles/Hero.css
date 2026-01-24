@@ -50,6 +50,28 @@
     /* No padding - aligns with tagline for consistent left edge */
 }
 
+/* Google-like inline user count highlight - Brush underline effect */
+.user-count {
+    position: relative;
+    font-weight: 600;
+    color: var(--color-primary);
+    letter-spacing: -0.02em;
+    padding: 0 2px;
+    display: inline-block;
+}
+
+.user-count::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-primary) 0%, transparent 100%);
+    opacity: 0.3;
+    border-radius: 1px;
+}
+
 /* Removed users-count and description-subtle - all text now uses consistent .description styling */
 
 .hero-links {

@@ -18,7 +18,7 @@ const Hero = () => {
         </p>
         
         <p className="description">
-          Used by over 150,000 users globally, our products are reliable and built to last.
+          Used by over <span className="user-count">1,50,000</span> users globally, our products are reliable and built to last.
         </p>
         
         <p className="description">
