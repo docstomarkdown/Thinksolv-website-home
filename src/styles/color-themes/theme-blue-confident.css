@@ -1,0 +1,29 @@
+/* 
+ * Theme: Confident Blue
+ * Psychology: Trust, Stability, Professionalism, Confidence
+ * Complements: Red logo (complementary color scheme)
+ * Mood: Professional, trustworthy, reliable
+ */
+
+:root {
+    /* Primary Color - Deep Professional Blue */
+    --color-primary: #2563EB;
+    --color-primary-light: #3B82F6;
+    --color-primary-dark: #1E40AF;
+    
+    /* RGB for gradients */
+    --color-primary-rgb: 37, 99, 235;
+    
+    /* Opacity variations */
+    --color-primary-01: rgba(var(--color-primary-rgb), 0.01);
+    --color-primary-02: rgba(var(--color-primary-rgb), 0.02);
+    --color-primary-03: rgba(var(--color-primary-rgb), 0.03);
+    --color-primary-04: rgba(var(--color-primary-rgb), 0.04);
+    --color-primary-05: rgba(var(--color-primary-rgb), 0.05);
+    --color-primary-06: rgba(var(--color-primary-rgb), 0.06);
+    --color-primary-08: rgba(var(--color-primary-rgb), 0.08);
+    --color-primary-10: rgba(var(--color-primary-rgb), 0.1);
+    --color-primary-12: rgba(var(--color-primary-rgb), 0.12);
+    --color-primary-15: rgba(var(--color-primary-rgb), 0.15);
+    --color-primary-25: rgba(var(--color-primary-rgb), 0.25);
+}

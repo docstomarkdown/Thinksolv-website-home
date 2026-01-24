@@ -1,0 +1,29 @@
+/* 
+ * Theme: Sophisticated Purple
+ * Psychology: Creativity, Innovation, Luxury, Wisdom
+ * Complements: Red logo (analogous color scheme)
+ * Mood: Premium, creative, innovative
+ */
+
+:root {
+    /* Primary Color - Deep Purple */
+    --color-primary: #7C3AED;
+    --color-primary-light: #8B5CF6;
+    --color-primary-dark: #6D28D9;
+    
+    /* RGB for gradients */
+    --color-primary-rgb: 124, 58, 237;
+    
+    /* Opacity variations */
+    --color-primary-01: rgba(var(--color-primary-rgb), 0.01);
+    --color-primary-02: rgba(var(--color-primary-rgb), 0.02);
+    --color-primary-03: rgba(var(--color-primary-rgb), 0.03);
+    --color-primary-04: rgba(var(--color-primary-rgb), 0.04);
+    --color-primary-05: rgba(var(--color-primary-rgb), 0.05);
+    --color-primary-06: rgba(var(--color-primary-rgb), 0.06);
+    --color-primary-08: rgba(var(--color-primary-rgb), 0.08);
+    --color-primary-10: rgba(var(--color-primary-rgb), 0.1);
+    --color-primary-12: rgba(var(--color-primary-rgb), 0.12);
+    --color-primary-15: rgba(var(--color-primary-rgb), 0.15);
+    --color-primary-25: rgba(var(--color-primary-rgb), 0.25);
+}

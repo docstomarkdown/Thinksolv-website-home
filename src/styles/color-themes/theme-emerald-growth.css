@@ -1,0 +1,29 @@
+/* 
+ * Theme: Growth Emerald
+ * Psychology: Growth, Balance, Harmony, Success
+ * Complements: Red logo (complementary - creates vibrant contrast)
+ * Mood: Balanced, growth-oriented, successful
+ */
+
+:root {
+    /* Primary Color - Rich Emerald */
+    --color-primary: #059669;
+    --color-primary-light: #10B981;
+    --color-primary-dark: #047857;
+    
+    /* RGB for gradients */
+    --color-primary-rgb: 5, 150, 105;
+    
+    /* Opacity variations */
+    --color-primary-01: rgba(var(--color-primary-rgb), 0.01);
+    --color-primary-02: rgba(var(--color-primary-rgb), 0.02);
+    --color-primary-03: rgba(var(--color-primary-rgb), 0.03);
+    --color-primary-04: rgba(var(--color-primary-rgb), 0.04);
+    --color-primary-05: rgba(var(--color-primary-rgb), 0.05);
+    --color-primary-06: rgba(var(--color-primary-rgb), 0.06);
+    --color-primary-08: rgba(var(--color-primary-rgb), 0.08);
+    --color-primary-10: rgba(var(--color-primary-rgb), 0.1);
+    --color-primary-12: rgba(var(--color-primary-rgb), 0.12);
+    --color-primary-15: rgba(var(--color-primary-rgb), 0.15);
+    --color-primary-25: rgba(var(--color-primary-rgb), 0.25);
+}
