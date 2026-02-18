@@ -8,7 +8,7 @@ const DEFAULT_SUBTITLE = (
   </>
 );
 
-const PrivacyPage = ({ extensionName }) => {
+const PrivacyPage = ({ extensionName, sourceName = 'ChatGPT' }) => {
   const subtitle = extensionName ? (
     <>for Google Chrome Extension <b>{extensionName}</b></>
   ) : (
@@ -47,7 +47,7 @@ const PrivacyPage = ({ extensionName }) => {
           
         </p>
         <br/>
-        <p className="privacy-text">We also do not collect the chatGPT responses while converting them to Google Docs or Word or PDF format.</p>
+        <p className="privacy-text">We also do not collect the {sourceName} responses while converting them to Google Docs or Word or PDF format.</p>
       </section>
       
       <section className="privacy-section">

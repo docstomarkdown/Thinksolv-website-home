@@ -20,7 +20,7 @@ function App() {
             <Route path="/extensions/chatgpt-to-word-pdf" element={<ChatGPTToWordPDF />} />
             <Route path="/extensions/chatgpt-to-google-docs-pdf" element={<ChatGPTToGoogleDocsPDF />} />
             <Route path="/extensions/privacy" element={<PrivacyPage />} />
-            <Route path="/extensions/gemini-to-word-pdf/privacy" element={<PrivacyPage extensionName="AI Chat to Word, PDF & Google Docs - for Gemini" />} />
+            <Route path="/extensions/gemini-to-word-pdf/privacy" element={<PrivacyPage extensionName="AI Chat to Word, PDF & Google Docs - for Gemini" sourceName="Gemini" />} />
             <Route path="/extensions/convert-chatgpt-to-google-docs-pdf-acq/privacy" element={<PrivacyPage extensionName="Convert ChatGPT to Google Doc, Microsoft Word, PDF" />} />
           </Routes>
           <Footer />
