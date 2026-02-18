@@ -2,13 +2,25 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/PrivacyPage.css';
 
-const PrivacyPage = () => {
+const DEFAULT_SUBTITLE = (
+  <>
+    for Google Chrome Extension <b>ChatGPT to Word or PDF</b> and <b>ChatGPT to Google Docs or PDF</b>
+  </>
+);
+
+const PrivacyPage = ({ extensionName }) => {
+  const subtitle = extensionName ? (
+    <>for Google Chrome Extension <b>{extensionName}</b></>
+  ) : (
+    DEFAULT_SUBTITLE
+  );
+
   return (
     <div className="privacy-page">
       <header className="privacy-header">
         <h1 className="privacy-title">Privacy Policy</h1>
         <p className="privacy-subtitle">
-          for Google Chrome Extension <b>ChatGPT to Word or PDF</b> and <b>ChatGPT to Google Docs or PDF</b>
+          {subtitle}
         </p>
       </header>
       
