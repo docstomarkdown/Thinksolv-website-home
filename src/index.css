@@ -206,8 +206,4 @@ a:hover {
     color: var(--color-primary);
 }
 
-ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
+/* Content lists (ul/ol) get default bullets/numbers. Nav/footer lists use list-style: none in their component CSS. */
