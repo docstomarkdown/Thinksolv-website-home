@@ -39,6 +39,9 @@ const Footer = () => {
               <li>
                 <Link to="/extensions/privacy" className="footer-link">Privacy</Link>
               </li>
+              <li>
+                <Link to="/terms" className="footer-link">Terms of Service</Link>
+              </li>
             </ul>
           </div>
 

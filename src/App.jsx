@@ -7,6 +7,7 @@ import ChatGPTToWordPDF from './pages/ChatGPTToWordPDF'
 import ChatGPTToGoogleDocsPDF from './pages/ChatGPTToGoogleDocsPDF'
 import PrivacyPage from './pages/PrivacyPage'
 import WebScraperProPrivacyPage from './pages/WebScraperProPrivacyPage'
+import TermsOfServicePage from './pages/TermsOfServicePage'
 import Footer from './components/Footer'
 import RecaptchaProvider from './components/RecaptchaProvider'
 
@@ -18,6 +19,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/terms" element={<TermsOfServicePage />} />
             <Route path="/extensions/chatgpt-to-word-pdf" element={<ChatGPTToWordPDF />} />
             <Route path="/extensions/chatgpt-to-google-docs-pdf" element={<ChatGPTToGoogleDocsPDF />} />
             <Route path="/extensions/privacy" element={<PrivacyPage />} />
