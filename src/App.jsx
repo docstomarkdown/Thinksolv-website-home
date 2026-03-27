@@ -8,6 +8,7 @@ import ChatGPTToGoogleDocsPDF from './pages/ChatGPTToGoogleDocsPDF'
 import PrivacyPage from './pages/PrivacyPage'
 import WebScraperProPrivacyPage from './pages/WebScraperProPrivacyPage'
 import TermsOfServicePage from './pages/TermsOfServicePage'
+import WebScraperProPage from './pages/WebScraperProPage'
 import Footer from './components/Footer'
 import RecaptchaProvider from './components/RecaptchaProvider'
 
@@ -25,6 +26,7 @@ function App() {
             <Route path="/extensions/privacy" element={<PrivacyPage />} />
             <Route path="/extensions/gemini-to-word-pdf/privacy" element={<PrivacyPage extensionName="AI Chat to Word, PDF & Google Docs - for Gemini" sourceName="Gemini" />} />
             <Route path="/extensions/convert-chatgpt-to-google-docs-pdf-acq/privacy" element={<PrivacyPage extensionName="Convert ChatGPT to Google Doc, Microsoft Word, PDF" />} />
+            <Route path="/extensions/web-scraper-pro" element={<WebScraperProPage />} />
             <Route path="/extensions/web-scraper-pro/privacy" element={<WebScraperProPrivacyPage />} />
           </Routes>
           <Footer />
