@@ -5,34 +5,12 @@
   background-color: var(--color-bg);
 }
 
-.wsp-page-header {
-  text-align: center;
-  margin-bottom: var(--spacing-lg);
-  padding-bottom: var(--spacing-md);
-  border-bottom: 1px solid var(--color-border-subtle);
-}
-
-.wsp-page-logo {
-  display: block;
-  margin: 0 auto var(--spacing-md);
-  width: 72px;
-  height: 72px;
-  object-fit: contain;
-}
-
-.wsp-page-title {
-  font-size: var(--font-size-2xl);
-  font-weight: 600;
-  color: var(--color-text-main);
-  margin: 0 0 var(--spacing-sm);
-  letter-spacing: -0.02em;
-}
-
-.wsp-page-tagline {
-  font-size: var(--font-size-base);
-  color: var(--color-text-muted);
-  margin: 0;
-  line-height: var(--line-height-relaxed);
+.wsp-page-lead {
+  font-size: 1.125rem;
+  line-height: 1.65;
+  color: var(--color-text-secondary);
+  margin: 0 0 var(--spacing-lg);
+  max-width: 42rem;
 }
 
 .wsp-page-card {
@@ -76,27 +54,6 @@
   margin-bottom: var(--spacing-xs);
 }
 
-.wsp-page-section--links {
-  padding-top: var(--spacing-md);
-  border-top: 1px solid var(--color-border-subtle);
-}
-
-.wsp-page-link {
-  color: var(--color-primary);
-  font-weight: 500;
-  text-decoration: none;
-}
-
-.wsp-page-link:hover {
-  color: var(--color-primary-dark);
-  text-decoration: underline;
-}
-
-.wsp-page-link-sep {
-  margin: 0 0.5rem;
-  color: var(--color-text-subtle);
-}
-
 @media (max-width: 768px) {
   .wsp-page {
     padding: var(--spacing-lg) var(--spacing-md);
@@ -104,9 +61,5 @@
 
   .wsp-page-card {
     padding: var(--spacing-md) var(--spacing-lg);
-  }
-
-  .wsp-page-title {
-    font-size: var(--font-size-xl);
   }
 }

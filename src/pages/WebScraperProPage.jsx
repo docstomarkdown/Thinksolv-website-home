@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
 import "../styles/WebScraperProPage.css";
 
 const PAGE_TITLE = "Web Scraper Pro | Thinksolv Technologies";
@@ -33,17 +32,10 @@ function WebScraperProPage() {
 
   return (
     <div className="wsp-page">
-      <header className="wsp-page-header">
-        <img
-          src="/webscraper-logo.png"
-          alt="Web Scraper Pro"
-          className="wsp-page-logo"
-        />
-        <h1 className="wsp-page-title">Web Scraper Pro</h1>
-        <p className="wsp-page-tagline">
-          A Thinksolv browser extension for structured data extraction.
-        </p>
-      </header>
+      <p className="wsp-page-lead">
+        A Thinksolv browser extension for structured data extraction—from the
+        pages you choose, without writing code.
+      </p>
 
       <div className="wsp-page-card">
         <section className="wsp-page-section">
@@ -64,24 +56,6 @@ function WebScraperProPage() {
           </ul>
         </section>
 
-        <section className="wsp-page-section wsp-page-section--links">
-          <p className="wsp-page-text">
-            <Link to="/extensions/web-scraper-pro/privacy" className="wsp-page-link">
-              Privacy Policy
-            </Link>
-            <span className="wsp-page-link-sep" aria-hidden="true">
-              ·
-            </span>
-            <a
-              href="https://www.webscraper.pro/"
-              className="wsp-page-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Product site
-            </a>
-          </p>
-        </section>
       </div>
     </div>
   );

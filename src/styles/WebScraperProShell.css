@@ -1,0 +1,97 @@
+.wsp-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg);
+}
+
+.wsp-shell-header {
+  background: linear-gradient(180deg, #0f172a 0%, #0c1424 100%);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.wsp-shell-header-inner {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0.75rem var(--spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+}
+
+.wsp-shell-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-width: 0;
+}
+
+.wsp-shell-brand-logo {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.wsp-shell-brand-name {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #f8fafc;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.wsp-shell-nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+  justify-content: flex-end;
+}
+
+.wsp-shell-nav-link {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #e2e8f0;
+  text-decoration: none;
+  padding: 0.35rem 0;
+  border-bottom: 1px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.wsp-shell-nav-link:hover {
+  color: #fff;
+  border-bottom-color: rgba(226, 232, 240, 0.35);
+}
+
+.wsp-shell-nav-link--muted {
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+.wsp-shell-nav-link--muted:hover {
+  color: #cbd5e1;
+  border-bottom-color: rgba(148, 163, 184, 0.35);
+}
+
+.wsp-shell-main {
+  flex: 1;
+  width: 100%;
+}
+
+@media (max-width: 520px) {
+  .wsp-shell-header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .wsp-shell-nav {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}

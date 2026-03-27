@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
+import WebScraperProShell from './components/WebScraperProShell'
 import Home from './pages/Home'
 import ContactPage from './pages/ContactPage'
 import ChatGPTToWordPDF from './pages/ChatGPTToWordPDF'
@@ -9,15 +10,17 @@ import PrivacyPage from './pages/PrivacyPage'
 import WebScraperProPrivacyPage from './pages/WebScraperProPrivacyPage'
 import TermsOfServicePage from './pages/TermsOfServicePage'
 import WebScraperProPage from './pages/WebScraperProPage'
-import Footer from './components/Footer'
 import RecaptchaProvider from './components/RecaptchaProvider'
 
 function App() {
   return (
     <RecaptchaProvider>
       <Router>
-        <Layout>
-          <Routes>
+        <Routes>
+          <Route element={<WebScraperProShell />}>
+            <Route path="/extensions/web-scraper-pro" element={<WebScraperProPage />} />
+          </Route>
+          <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/terms" element={<TermsOfServicePage />} />
@@ -26,11 +29,9 @@ function App() {
             <Route path="/extensions/privacy" element={<PrivacyPage />} />
             <Route path="/extensions/gemini-to-word-pdf/privacy" element={<PrivacyPage extensionName="AI Chat to Word, PDF & Google Docs - for Gemini" sourceName="Gemini" />} />
             <Route path="/extensions/convert-chatgpt-to-google-docs-pdf-acq/privacy" element={<PrivacyPage extensionName="Convert ChatGPT to Google Doc, Microsoft Word, PDF" />} />
-            <Route path="/extensions/web-scraper-pro" element={<WebScraperProPage />} />
             <Route path="/extensions/web-scraper-pro/privacy" element={<WebScraperProPrivacyPage />} />
-          </Routes>
-          <Footer />
-        </Layout>
+          </Route>
+        </Routes>
       </Router>
     </RecaptchaProvider>
   )

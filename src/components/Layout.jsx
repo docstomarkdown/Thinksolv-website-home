@@ -1,14 +1,17 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 import Header from './Header';
+import Footer from './Footer';
 import '../styles/Layout.css';
 
-const Layout = ({ children }) => {
+const Layout = () => {
   return (
     <div className="layout-wrapper">
       <Header />
       <main className="layout">
-        {children}
+        <Outlet />
       </main>
+      <Footer />
     </div>
   );
 };
