@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
 import WebScraperProShell from './components/WebScraperProShell'
+import ShopifySpyProShell from './components/ShopifySpyProShell'
 import Home from './pages/Home'
 import ContactPage from './pages/ContactPage'
 import ChatGPTToWordPDF from './pages/ChatGPTToWordPDF'
@@ -10,6 +11,8 @@ import PrivacyPage from './pages/PrivacyPage'
 import WebScraperProPrivacyPage from './pages/WebScraperProPrivacyPage'
 import TermsOfServicePage from './pages/TermsOfServicePage'
 import WebScraperProPage from './pages/WebScraperProPage'
+import ShopifySpyProPage from './pages/ShopifySpyProPage'
+import ShopifySpyProPrivacyPage from './pages/ShopifySpyProPrivacyPage'
 import RecaptchaProvider from './components/RecaptchaProvider'
 
 function App() {
@@ -19,6 +22,10 @@ function App() {
         <Routes>
           <Route element={<WebScraperProShell />}>
             <Route path="/extensions/web-scraper-pro" element={<WebScraperProPage />} />
+          </Route>
+          <Route element={<ShopifySpyProShell />}>
+            <Route path="/extensions/shopify-spy-pro" element={<ShopifySpyProPage />} />
+            <Route path="/extensions/shopify-spy-pro/privacy" element={<ShopifySpyProPrivacyPage />} />
           </Route>
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />

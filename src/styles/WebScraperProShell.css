@@ -6,9 +6,14 @@
 }
 
 .wsp-shell-header {
-  background: linear-gradient(180deg, #0f172a 0%, #0c1424 100%);
-  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(254, 252, 251, 0.92);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--color-border-subtle);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
 .wsp-shell-header-inner {
@@ -39,7 +44,7 @@
 .wsp-shell-brand-name {
   font-size: 1.125rem;
   font-weight: 600;
-  color: #f8fafc;
+  color: var(--color-text-main);
   letter-spacing: -0.02em;
   white-space: nowrap;
   margin: 0;
@@ -57,26 +62,26 @@
 .wsp-shell-nav-link {
   font-size: 0.9375rem;
   font-weight: 500;
-  color: #e2e8f0;
+  color: var(--color-text-secondary);
   text-decoration: none;
   padding: 0.35rem 0;
   border-bottom: 1px solid transparent;
-  transition: color 0.15s ease, border-color 0.15s ease;
+  transition: color var(--transition-base), border-color var(--transition-base);
 }
 
 .wsp-shell-nav-link:hover {
-  color: #fff;
-  border-bottom-color: rgba(226, 232, 240, 0.35);
+  color: var(--color-primary);
+  border-bottom-color: rgba(var(--color-primary-rgb), 0.35);
 }
 
 .wsp-shell-nav-link--muted {
-  color: #94a3b8;
+  color: var(--color-text-muted);
   font-weight: 400;
 }
 
 .wsp-shell-nav-link--muted:hover {
-  color: #cbd5e1;
-  border-bottom-color: rgba(148, 163, 184, 0.35);
+  color: var(--color-text-secondary);
+  border-bottom-color: var(--color-border);
 }
 
 .wsp-shell-main {
