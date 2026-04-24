@@ -5,11 +5,12 @@ import "../styles/PrivacyPage.css";
 const DEFAULT_SUBTITLE = (
   <>
     for Google Chrome Extension <b>ChatGPT to Word or PDF</b> and{" "}
-    <b>ChatGPT to Google Docs or PDF</b>
+    <b>ChatGPT to Google Docs or PDF</b> and {" "} 
+    <b>Claude to PDF, Word and Google Docs</b>
   </>
 );
 
-const PrivacyPage = ({ extensionName, sourceName = "ChatGPT" }) => {
+const PrivacyPage = ({ extensionName, sourceName = "ChatGPT/Claude" }) => {
   const subtitle = extensionName ? (
     <>
       for Google Chrome Extension <b>{extensionName}</b>
