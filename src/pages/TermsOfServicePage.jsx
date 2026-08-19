@@ -13,7 +13,7 @@ const TermsOfServicePage = () => {
       </header>
 
       <div className="privacy-content">
-        <p className="privacy-effective-date">Effective Date: March 27, 2025</p>
+        <p className="privacy-effective-date">Effective Date: August 19, 2026</p>
 
         <section className="privacy-section">
           <p className="privacy-text">
@@ -25,8 +25,26 @@ const TermsOfServicePage = () => {
           </p>
         </section>
 
+        <nav className="privacy-toc" aria-label="Table of contents">
+          <p className="privacy-toc-title">Jump to:</p>
+          <ol className="privacy-toc-list">
+            <li><a href="#our-services" className="privacy-toc-link">1. Our services</a></li>
+            <li><a href="#payments-subscriptions-refunds" className="privacy-toc-link">2. Payments, subscriptions, and refunds</a></li>
+            <li><a href="#acceptable-use" className="privacy-toc-link">3. Acceptable use</a></li>
+            <li><a href="#intellectual-property" className="privacy-toc-link">4. Intellectual property</a></li>
+            <li><a href="#third-party-services" className="privacy-toc-link">5. Third-party services</a></li>
+            <li><a href="#disclaimers" className="privacy-toc-link">6. Disclaimers</a></li>
+            <li><a href="#limitation-of-liability" className="privacy-toc-link">7. Limitation of liability</a></li>
+            <li><a href="#indemnity" className="privacy-toc-link">8. Indemnity</a></li>
+            <li><a href="#termination" className="privacy-toc-link">9. Termination</a></li>
+            <li><a href="#changes-to-these-terms" className="privacy-toc-link">10. Changes to these Terms</a></li>
+            <li><a href="#governing-law" className="privacy-toc-link">11. Governing law</a></li>
+            <li><a href="#contact" className="privacy-toc-link">12. Contact</a></li>
+          </ol>
+        </nav>
+
         <section className="privacy-section">
-          <h2 className="privacy-section-title">1. Our services</h2>
+          <h2 id="our-services" className="privacy-section-title">1. Our services</h2>
           <p className="privacy-text">
             We provide software products, including Google Chrome extensions and
             this website, for productivity and data-related workflows. Features,
@@ -37,7 +55,122 @@ const TermsOfServicePage = () => {
         </section>
 
         <section className="privacy-section">
-          <h2 className="privacy-section-title">2. Acceptable use</h2>
+          <h2 id="payments-subscriptions-refunds" className="privacy-section-title">2. Payments, subscriptions, and refunds</h2>
+          <p className="privacy-text">
+            <strong>Payment processing:</strong> Paid features of our Chrome
+            extensions are billed and processed by Lemon Squeezy, our authorized
+            payment processor and Merchant of Record. Lemon Squeezy handles
+            billing, payment collection, tax calculation, and receipt issuance on
+            our behalf.
+          </p>
+          <p className="privacy-text">
+            By purchasing a paid plan, you also agree to Lemon Squeezy&apos;s{" "}
+            <a
+              href="https://www.lemonsqueezy.com/terms"
+              className="privacy-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              terms of service
+            </a>{" "}
+            and privacy policy.
+          </p>
+
+          <p className="privacy-text">
+            <strong>Subscriptions and renewals:</strong> Paid plans renew
+            automatically at the end of each billing cycle unless canceled before
+            the renewal date.
+          </p>
+          <p className="privacy-text">
+            Lemon Squeezy sends a renewal reminder and receipt by email in
+            advance of each charge. It is your responsibility to review these
+            emails and to cancel your subscription before the renewal date if you
+            do not wish to be charged for the next billing cycle.
+          </p>
+          <p className="privacy-text">
+            We are not responsible for renewal charges resulting from a failure
+            to cancel in time, including where the email is missed, filtered, or
+            sent to an incorrect address on file.
+          </p>
+
+          <p className="privacy-text">
+            <strong>How to cancel:</strong> You may cancel your subscription at
+            any time through your{" "}
+            <a
+              href="https://thinksolv.lemonsqueezy.com/billing"
+              className="privacy-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Lemon Squeezy customer portal
+            </a>
+            , or by contacting us at{" "}
+            <a href="mailto:help@thinksolv.com" className="privacy-link">
+              help@thinksolv.com
+            </a>
+            .
+          </p>
+          <p className="privacy-text">
+            Cancellation stops future renewals but does not retroactively refund
+            charges already processed, except as described below.
+          </p>
+
+          <p className="privacy-text">
+            <strong>Refund policy:</strong> We offer a 14-day money-back
+            guarantee on the initial purchase of a paid plan. If you are not
+            satisfied, contact us at{" "}
+            <a href="mailto:help@thinksolv.com" className="privacy-link">
+              help@thinksolv.com
+            </a>{" "}
+            within 14 days of your original purchase date to request a refund.
+          </p>
+          <p className="privacy-text">
+            Refund requests made after this 14-day window, and charges for
+            subscription renewals (including the first renewal after the initial
+            purchase), are not eligible for a refund except where required by
+            applicable law.
+          </p>
+          <p className="privacy-text">
+            Approved refunds are issued to the original payment method via Lemon
+            Squeezy and take 7 working days to appear, depending on your bank or
+            card issuer.
+          </p>
+
+          <p className="privacy-text">
+            <strong>Disputes and chargebacks:</strong> If you believe you were
+            charged in error or are dissatisfied with a purchase, you agree to
+            contact us first at{" "}
+            <a href="mailto:help@thinksolv.com" className="privacy-link">
+              help@thinksolv.com
+            </a>{" "}
+            so we can investigate and resolve the issue directly.
+          </p>
+          <p className="privacy-text">
+            Initiating a chargeback or payment dispute with your bank or card
+            issuer without first attempting to resolve the matter with us is a
+            breach of these Terms and may result in immediate suspension or
+            termination of your access to our services.
+          </p>
+          <p className="privacy-text">
+            We reserve the right to contest any chargeback or dispute by
+            providing evidence to Lemon Squeezy and/or your card issuer,
+            including your purchase records, license and activation status,
+            extension usage and access logs, IP addresses, support
+            correspondence, and records of the renewal notice emails sent to
+            you.
+          </p>
+          <p className="privacy-text">
+            <strong>Support:</strong> For billing questions, cancellations, or
+            refund requests, contact{" "}
+            <a href="mailto:help@thinksolv.com" className="privacy-link">
+              help@thinksolv.com
+            </a>
+            .
+          </p>
+        </section>
+
+        <section className="privacy-section">
+          <h2 id="acceptable-use" className="privacy-section-title">3. Acceptable use</h2>
           <p className="privacy-text">
             You agree to use our services only in compliance with applicable laws
             and the policies of platforms you interact with (including the Chrome
@@ -53,7 +186,7 @@ const TermsOfServicePage = () => {
         </section>
 
         <section className="privacy-section">
-          <h2 className="privacy-section-title">3. Intellectual property</h2>
+          <h2 id="intellectual-property" className="privacy-section-title">4. Intellectual property</h2>
           <p className="privacy-text">
             Our services, branding, documentation, and underlying software are
             owned by Thinksolv Technologies or our licensors and are protected by
@@ -65,7 +198,7 @@ const TermsOfServicePage = () => {
         </section>
 
         <section className="privacy-section">
-          <h2 className="privacy-section-title">4. Third-party services</h2>
+          <h2 id="third-party-services" className="privacy-section-title">5. Third-party services</h2>
           <p className="privacy-text">
             Our extensions or site may interoperate with third-party products
             (for example, Google services or AI platforms). Those services are
@@ -75,7 +208,7 @@ const TermsOfServicePage = () => {
         </section>
 
         <section className="privacy-section">
-          <h2 className="privacy-section-title">5. Disclaimers</h2>
+          <h2 id="disclaimers" className="privacy-section-title">6. Disclaimers</h2>
           <p className="privacy-text">
             Our services are provided &quot;as is&quot; and &quot;as
             available.&quot; To the fullest extent permitted by law, we disclaim
@@ -87,7 +220,7 @@ const TermsOfServicePage = () => {
         </section>
 
         <section className="privacy-section">
-          <h2 className="privacy-section-title">6. Limitation of liability</h2>
+          <h2 id="limitation-of-liability" className="privacy-section-title">7. Limitation of liability</h2>
           <p className="privacy-text">
             To the fullest extent permitted by law, Thinksolv Technologies and its
             directors, employees, and affiliates shall not be liable for any
@@ -104,7 +237,7 @@ const TermsOfServicePage = () => {
         </section>
 
         <section className="privacy-section">
-          <h2 className="privacy-section-title">7. Indemnity</h2>
+          <h2 id="indemnity" className="privacy-section-title">8. Indemnity</h2>
           <p className="privacy-text">
             You agree to defend, indemnify, and hold harmless Thinksolv
             Technologies and its affiliates from any claims, damages, losses, or
@@ -115,7 +248,7 @@ const TermsOfServicePage = () => {
         </section>
 
         <section className="privacy-section">
-          <h2 className="privacy-section-title">8. Termination</h2>
+          <h2 id="termination" className="privacy-section-title">9. Termination</h2>
           <p className="privacy-text">
             We may suspend or terminate access to our services if you breach
             these Terms or if we reasonably believe such action is necessary to
@@ -127,7 +260,7 @@ const TermsOfServicePage = () => {
         </section>
 
         <section className="privacy-section">
-          <h2 className="privacy-section-title">9. Changes to these Terms</h2>
+          <h2 id="changes-to-these-terms" className="privacy-section-title">10. Changes to these Terms</h2>
           <p className="privacy-text">
             We may update these Terms from time to time. We will post the revised
             Terms on this page and update the Effective Date. Your continued use
@@ -138,7 +271,7 @@ const TermsOfServicePage = () => {
         </section>
 
         <section className="privacy-section">
-          <h2 className="privacy-section-title">10. Governing law</h2>
+          <h2 id="governing-law" className="privacy-section-title">11. Governing law</h2>
           <p className="privacy-text">
             These Terms are governed by the laws of India, without regard to
             conflict-of-law principles. Any disputes arising from or relating to
@@ -148,7 +281,7 @@ const TermsOfServicePage = () => {
         </section>
 
         <section className="privacy-section">
-          <h2 className="privacy-section-title">11. Contact</h2>
+          <h2 id="contact" className="privacy-section-title">12. Contact</h2>
           <p className="privacy-text">
             For questions about these Terms, please{" "}
             <Link to="/contact" className="privacy-link">

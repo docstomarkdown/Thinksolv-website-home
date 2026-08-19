@@ -56,6 +56,47 @@
   font-weight: 600;
   color: var(--color-text-main);
   margin-bottom: var(--spacing-md);
+  scroll-margin-top: calc(var(--header-height, 0px) + var(--spacing-md));
+}
+
+.privacy-toc {
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 10px;
+  padding: var(--spacing-md) var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+.privacy-toc-title {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-text-main);
+  margin: 0 0 var(--spacing-sm);
+}
+
+.privacy-toc-list {
+  margin: 0;
+  padding-left: var(--spacing-lg);
+  columns: 2;
+  column-gap: var(--spacing-lg);
+  list-style-position: outside;
+}
+
+.privacy-toc-list li {
+  break-inside: avoid;
+  margin-bottom: var(--spacing-xs, 0.5rem);
+}
+
+.privacy-toc-link {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color var(--transition-base);
+}
+
+.privacy-toc-link:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
 }
 
 .privacy-text {
@@ -111,5 +152,9 @@
 
   .privacy-section-title {
     font-size: var(--font-size-lg);
+  }
+
+  .privacy-toc-list {
+    columns: 1;
   }
 }
