@@ -27,7 +27,7 @@ const TermsOfServicePage = () => {
 
         <nav className="privacy-toc" aria-label="Table of contents">
           <p className="privacy-toc-title">Jump to:</p>
-          <ol className="privacy-toc-list">
+          <ul className="privacy-toc-list">
             <li><a href="#our-services" className="privacy-toc-link">1. Our services</a></li>
             <li><a href="#payments-subscriptions-refunds" className="privacy-toc-link">2. Payments, subscriptions, and refunds</a></li>
             <li><a href="#acceptable-use" className="privacy-toc-link">3. Acceptable use</a></li>
@@ -40,7 +40,7 @@ const TermsOfServicePage = () => {
             <li><a href="#changes-to-these-terms" className="privacy-toc-link">10. Changes to these Terms</a></li>
             <li><a href="#governing-law" className="privacy-toc-link">11. Governing law</a></li>
             <li><a href="#contact" className="privacy-toc-link">12. Contact</a></li>
-          </ol>
+          </ul>
         </nav>
 
         <section className="privacy-section">

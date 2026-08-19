@@ -76,10 +76,10 @@
 
 .privacy-toc-list {
   margin: 0;
-  padding-left: var(--spacing-lg);
+  padding-left: 0;
   columns: 2;
   column-gap: var(--spacing-lg);
-  list-style-position: outside;
+  list-style: none;
 }
 
 .privacy-toc-list li {
