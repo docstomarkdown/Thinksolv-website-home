@@ -21,7 +21,7 @@ const WebScraperProPrivacyPage = () => {
 
         <section className="privacy-section">
           <p className="privacy-text">
-            Thinksolv Technologies (&quot;we,&quot; &quot;us,&quot; &quot;our&quot;)
+            Thinksolv Technologies OPC Private Limited (&quot;Thinksolv,&quot; &quot;we,&quot; &quot;us,&quot; &quot;our&quot;)
             respects and values your privacy. This Privacy Policy describes how
             we handle and protect your personal information in relation to your
             use of our Google Chrome extension{" "}

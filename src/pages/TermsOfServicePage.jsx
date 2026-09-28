@@ -19,7 +19,7 @@ const TermsOfServicePage = () => {
           <p className="privacy-text">
             These Terms of Service (&quot;Terms&quot;) govern your access to and use
             of the websites, browser extensions, and related services offered by
-            Thinksolv Technologies (&quot;we,&quot; &quot;us,&quot; &quot;our&quot;).
+            Thinksolv Technologies OPC Private Limited (&quot;Thinksolv,&quot; &quot;we,&quot; &quot;us,&quot; &quot;our&quot;).
             By using our services, you agree to these Terms. If you do not agree,
             do not use our services.
           </p>
@@ -189,7 +189,7 @@ const TermsOfServicePage = () => {
           <h2 id="intellectual-property" className="privacy-section-title">4. Intellectual property</h2>
           <p className="privacy-text">
             Our services, branding, documentation, and underlying software are
-            owned by Thinksolv Technologies or our licensors and are protected by
+            owned by Thinksolv or our licensors and are protected by
             intellectual property laws. These Terms do not grant you ownership of
             our intellectual property. You receive a limited, non-exclusive,
             non-transferable right to use our extensions and site in line with
@@ -222,7 +222,7 @@ const TermsOfServicePage = () => {
         <section className="privacy-section">
           <h2 id="limitation-of-liability" className="privacy-section-title">7. Limitation of liability</h2>
           <p className="privacy-text">
-            To the fullest extent permitted by law, Thinksolv Technologies and its
+            To the fullest extent permitted by law, Thinksolv and its
             directors, employees, and affiliates shall not be liable for any
             indirect, incidental, special, consequential, or punitive damages, or
             any loss of profits, data, goodwill, or business opportunities,
@@ -240,7 +240,7 @@ const TermsOfServicePage = () => {
           <h2 id="indemnity" className="privacy-section-title">8. Indemnity</h2>
           <p className="privacy-text">
             You agree to defend, indemnify, and hold harmless Thinksolv
-            Technologies and its affiliates from any claims, damages, losses, or
+            and its affiliates from any claims, damages, losses, or
             expenses (including reasonable legal fees) arising from your use of our
             services, your violation of these Terms, or your violation of
             others&apos; rights.

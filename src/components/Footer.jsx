@@ -49,7 +49,7 @@ const Footer = () => {
           <div className="footer-links-column">
             <h4 className="footer-column-title">Contact</h4>
             <div className="footer-address">
-              <p>Thinksolv Technologies Pvt Ltd</p>
+              <p>Thinksolv Technologies OPC Private Limited</p>
               <p>Forge Factory, KCT Tech Park</p>
               <p>Coimbatore - 641 049, India</p>
             </div>
@@ -61,7 +61,7 @@ const Footer = () => {
       <div className="footer-bottom">
         <div className="footer-bottom-content">
           <p className="footer-copyright">
-            © {year} Thinksolv Technologies OPC Pvt Ltd. All rights reserved.
+            © {year} Thinksolv Technologies OPC Private Limited. All rights reserved.
           </p>
           <div className="footer-social">
             <a 

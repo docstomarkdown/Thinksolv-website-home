@@ -9,13 +9,13 @@ const WhatWeBuild = () => {
             <h3 className="section-title">What we work on</h3>
             <div className="section-content">
                 <p className="section-text section-text-lead">
-                    Tools for document-centric work
+                    Tools that move content where it needs to be
                 </p>
                 <p className="section-text">
-                    We build focused software for document workflows, file management, and spreadsheet-driven automation within the Google ecosystem, spanning Google Workspace and Chrome-based platforms.
+                    We build focused browser software that moves content between AI assistants, the web, and the documents and spreadsheets people rely on—turning what's on screen into clean, structured, usable output.
                 </p>
                 <p className="section-text">
-                    Our products are designed for people who work daily in Docs, Sheets, and Drive and expect speed, predictability, and deep integration.
+                    Our products are designed for people who research, write, and analyse in the browser every day and expect speed, predictability, and output they don't have to fix.
                 </p>
                 <p className="section-text">
                     Every product begins with a simple question:

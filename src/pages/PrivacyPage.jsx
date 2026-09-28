@@ -33,7 +33,7 @@ const PrivacyPage = ({ extensionName, sourceName = "ChatGPT/Claude" }) => {
 
         <section className="privacy-section">
           <p className="privacy-text">
-            Thinksolv Technologies ("we," "us," "our") respects and values your privacy. This Privacy Policy describes how we handle and protect your personal information in relation to your use of our Google Chrome extension(s).
+            Thinksolv Technologies OPC Private Limited ("Thinksolv," "we," "us," "our") respects and values your privacy. This Privacy Policy describes how we handle and protect your personal information in relation to your use of our Google Chrome extension(s).
           </p>
         </section>
 
