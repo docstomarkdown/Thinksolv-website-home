@@ -108,7 +108,14 @@
     background: radial-gradient(circle, var(--color-primary-08) 0%, transparent 70%);
     border-radius: 50%;
     z-index: -1;
-    animation: pulse 4s ease-in-out infinite;
+    /* Breathes alongside the hero animation (3 x 6s), then rests. */
+    animation: pulse 4.5s ease-in-out 4;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-visual::before {
+        animation: none;
+    }
 }
 
 @keyframes pulse {
@@ -138,8 +145,13 @@
         padding-left: 0; /* Remove padding on mobile for centered text */
     }
 
+    /* A small still of the finished files instead of the full animation. */
     .hero-visual {
+        padding-left: 0;
+        width: 100%;
+    }
+
+    .hero-visual::before {
         display: none;
-        /* Hide animation container on mobile to save space */
     }
 }
