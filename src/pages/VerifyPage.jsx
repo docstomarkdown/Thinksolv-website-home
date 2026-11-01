@@ -67,8 +67,9 @@ const VerifyPage = () => {
   const loading = result.key !== key;
   const { outcome, person, checkedAt } = result;
   const employed = outcome === 'found' && person.status === 'EMPLOYED';
-  // Only for someone currently employed (the API says so with hasPhoto): the point is to compare a face with the card's holder.
-  const showPhoto = employed && person.hasPhoto === true && photoFailedFor !== key;
+  const onSabbatical = outcome === 'found' && person.status === 'ON_SABBATICAL';
+  // Only for someone currently employed or on sabbatical (the API says so with hasPhoto): the point is to compare a face with the card's holder.
+  const showPhoto = (employed || onSabbatical) && person.hasPhoto === true && photoFailedFor !== key;
 
   let tone = 'loading';
   let icon = null;
@@ -80,6 +81,11 @@ const VerifyPage = () => {
       icon = CHECK;
       heading = 'Verified';
       lead = `This card is genuine and the holder is currently employed at ${person.company}.`;
+    } else if (onSabbatical) {
+      tone = 'warn';
+      icon = DASH;
+      heading = 'On sabbatical';
+      lead = `This card is genuine. The holder is still with ${person.company} but is on a sabbatical and is not currently at work.`;
     } else if (outcome === 'found') {
       tone = 'warn';
       icon = DASH;
