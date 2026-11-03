@@ -5,6 +5,9 @@
 //   RECAPTCHA_SECRET_KEY    already used by the contact form
 //   LEAVE_RELAY_SECRET      a long random string; the workspace has the same value as its LEAVE_RELAY_SECRET
 //   WORKSPACE_URL           optional, default https://workspace.thinksolv.com
+//   CF_ACCESS_CLIENT_ID / CF_ACCESS_CLIENT_SECRET
+//                           a Cloudflare Access service token; when both are set they are sent with the call, so the workspace's
+//                           Access policy on /api/leave-public/* can allow this server alone ("Service Auth" instead of "Bypass")
 
 const WORKSPACE_URL = (process.env.WORKSPACE_URL || 'https://workspace.thinksolv.com').replace(/\/+$/, '');
 const FIELDS = ['employeeId', 'securityPin', 'fromDate', 'toDate', 'dayPart', 'reason'];
@@ -47,9 +50,14 @@ export async function handleLeaveApply(req, res) {
     const payload = { clientIp: clientIp(req) };
     for (const key of FIELDS) if (typeof body[key] === 'string') payload[key] = body[key];
 
+    const headers = { 'Content-Type': 'application/json', 'X-Leave-Relay-Secret': process.env.LEAVE_RELAY_SECRET };
+    if (process.env.CF_ACCESS_CLIENT_ID && process.env.CF_ACCESS_CLIENT_SECRET) {
+      headers['CF-Access-Client-Id'] = process.env.CF_ACCESS_CLIENT_ID;
+      headers['CF-Access-Client-Secret'] = process.env.CF_ACCESS_CLIENT_SECRET;
+    }
     const response = await fetch(`${WORKSPACE_URL}/api/leave-public/apply`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'X-Leave-Relay-Secret': process.env.LEAVE_RELAY_SECRET },
+      headers,
       body: JSON.stringify(payload),
     });
     let result = null;
