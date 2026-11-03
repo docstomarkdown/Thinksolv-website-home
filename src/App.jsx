@@ -14,6 +14,7 @@ import WebScraperProPage from './pages/WebScraperProPage'
 import ShopifySpyProPage from './pages/ShopifySpyProPage'
 import ShopifySpyProPrivacyPage from './pages/ShopifySpyProPrivacyPage'
 import VerifyPage from './pages/VerifyPage'
+import LeavePage from './pages/LeavePage'
 import RecaptchaProvider from './components/RecaptchaProvider'
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/terms" element={<TermsOfServicePage />} />
             <Route path="/verify/:token" element={<VerifyPage />} />
+            <Route path="/leave" element={<LeavePage />} />
             <Route path="/extensions/chatgpt-to-word-pdf" element={<ChatGPTToWordPDF />} />
             <Route path="/extensions/chatgpt-to-google-docs-pdf" element={<ChatGPTToGoogleDocsPDF />} />
             <Route path="/extensions/privacy" element={<PrivacyPage />} />

@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import { handleSendEmail } from './emailHandler.js';
+import { handleLeaveApply } from './leaveHandler.js';
 
 // Load environment variables
 // Try .env.local first, then fall back to .env
@@ -35,6 +36,9 @@ app.get('/health', (req, res) => {
 
 // Send email endpoint - uses shared handler
 app.post('/api/send-email', handleSendEmail);
+
+// Apply for leave - checks reCAPTCHA, then the Thinksolv workspace
+app.post('/api/leave-apply', handleLeaveApply);
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
